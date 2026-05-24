@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // DocuMind brand palette
+        // SAGE brand palette
         brand: {
           50: '#eef2ff',
           100: '#e0e7ff',

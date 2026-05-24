@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🧠 DocuMind AI
+# 🧠 SAGE
 
-### Production-Grade RAG Application for Intelligent PDF Chat
+### Semantic Analysis & Guidance Engine — Intelligent PDF Knowledge Assistant
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org)
@@ -11,13 +11,11 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**Upload any PDF. Ask anything. Get cited, grounded AI answers.**
+**Upload any PDF knowledge base. Ask SAGE anything. Get cited, grounded AI answers.**
 
 [Demo](#) · [Documentation](#architecture) · [Quick Start](#quick-start) · [Roadmap](#roadmap)
 
 ---
-
-![DocuMind AI Banner](https://via.placeholder.com/1200x600/0f1420/6366f1?text=DocuMind+AI+—+Chat+with+Your+PDFs)
 
 </div>
 
@@ -30,7 +28,6 @@
 - [Tech Stack](#tech-stack)
 - [Architecture](#architecture)
 - [RAG Pipeline](#rag-pipeline)
-- [Screenshots](#screenshots)
 - [Quick Start](#quick-start)
 - [Environment Variables](#environment-variables)
 - [API Reference](#api-reference)
@@ -42,9 +39,9 @@
 
 ## Overview
 
-**DocuMind AI** is a startup-grade, production-ready RAG (Retrieval-Augmented Generation) application that transforms any PDF document into an interactive AI knowledge base.
+**SAGE (Semantic Analysis & Guidance Engine)** is a startup-grade, production-ready RAG (Retrieval-Augmented Generation) application that transforms any PDF document into an interactive, context-aware AI knowledge base.
 
-Built with a clean MVC backend, a modular LangChain pipeline, and a stunning dark-themed React frontend, this project demonstrates:
+Built with a clean MVC backend, a modular LangChain pipeline, and a stunning dark-themed React frontend, SAGE demonstrates:
 
 - **Full-stack engineering** across a production Express + MongoDB backend
 - **AI/ML engineering** via a complete RAG pipeline with embeddings and vector search
@@ -60,7 +57,7 @@ Built with a clean MVC backend, a modular LangChain pipeline, and a stunning dar
 | Feature | Status |
 |---------|--------|
 | PDF Upload & Text Extraction | ✅ Complete |
-| Recursive Text Chunking | ✅ Complete |
+| Recursive Character Text Chunking | ✅ Complete |
 | HuggingFace Embeddings | ✅ Complete |
 | In-Memory Vector Search | ✅ Complete |
 | Multi-Provider LLM (OpenRouter / OpenAI / Ollama) | ✅ Complete |
@@ -126,7 +123,7 @@ Ollama              → Local LLM inference (Llama 3.2, Mistral)
 ## Architecture
 
 ```
-documind-ai/
+ai-pdf-chatbot/
 ├── backend/                    # Express API Server
 │   ├── config/
 │   │   └── database.js         # MongoDB connection with retry
@@ -191,7 +188,7 @@ User Question
 ┌─────────────────────────────────────┐
 │         RETRIEVAL PHASE             │
 │                                     │
-│  1. PDF Upload                      │
+│  1. PDF Ingestion                   │
 │     └── pdf-parse text extraction   │
 │                                     │
 │  2. Text Chunking                   │
@@ -239,15 +236,15 @@ Cited Answer + Source Chunks
 ### Prerequisites
 
 - Node.js 18+
-- MongoDB (local or Atlas)
+- MongoDB (local or Atlas Cluster)
 - One of: OpenRouter API key / OpenAI API key / Ollama running locally
 - HuggingFace API key (free tier works)
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/documind-ai.git
-cd documind-ai
+git clone https://github.com/joshisanidhya/ai-pdf-chatbot.git
+cd ai-pdf-chatbot
 ```
 
 ### 2. Backend Setup
@@ -310,7 +307,7 @@ PORT=5000
 NODE_ENV=development
 
 # Database
-MONGODB_URI=mongodb://localhost:27017/documind
+MONGODB_URI=mongodb://localhost:27017/sage
 
 # Authentication
 JWT_SECRET=your_super_secret_key_at_least_32_chars
@@ -349,7 +346,7 @@ VITE_API_URL=http://localhost:5000/api
 | GET | `/api/auth/me` | Get current user |
 | PUT | `/api/auth/profile` | Update profile |
 
-### Documents
+### Documents (Knowledge Bases)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/documents/upload` | Upload & process PDF |
@@ -468,7 +465,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-**Built with ❤️ by [Your Name](https://github.com/yourusername)**
+**Built with ❤️ by [Sanidhya Joshi](https://github.com/joshisanidhya)**
 
 *A portfolio project demonstrating production-grade AI/full-stack engineering*
 
