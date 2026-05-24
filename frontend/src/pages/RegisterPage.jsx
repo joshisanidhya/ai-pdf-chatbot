@@ -38,7 +38,7 @@ export default function RegisterPage() {
     setIsLoading(true);
     try {
       await register(formData.name, formData.email, formData.password);
-      toast.success('Account created! Welcome to DocuMind AI 🚀');
+      toast.success('Account created! Welcome to SAGE 🚀');
       navigate('/dashboard');
     } catch (error) {
       toast.error(error.message || 'Registration failed');
@@ -77,11 +77,11 @@ export default function RegisterPage() {
               <Brain className="w-6 h-6 text-white" />
             </div>
             <span className="font-bold text-2xl text-white">
-              Docu<span className="gradient-text">Mind</span> AI
+              SAGE
             </span>
           </Link>
           <h1 className="text-2xl font-bold text-white mb-1">Create your account</h1>
-          <p className="text-slate-400 text-sm">Start chatting with your PDFs in minutes</p>
+          <p className="text-slate-400 text-sm">Start uploading knowledge to SAGE in minutes</p>
         </div>
 
         <div className="glass rounded-2xl p-8 shadow-glass">

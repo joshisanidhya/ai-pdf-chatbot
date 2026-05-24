@@ -1,7 +1,7 @@
 {
-  "name": "documind-ai-backend",
+  "name": "sage-backend",
   "version": "1.0.0",
-  "description": "DocuMind AI - Production RAG Backend powered by LangChain & Express",
+  "description": "SAGE - Semantic Analysis & Guidance Engine RAG Backend powered by LangChain & Express",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {

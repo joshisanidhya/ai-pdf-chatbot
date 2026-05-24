@@ -355,12 +355,12 @@ export default function ChatInterface({ document, conversationId, onConversation
               <Sparkles className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">
-              {document ? `Chat with ${document.name}` : 'Select a document to start'}
+              {document ? `Consult SAGE on ${document.name}` : 'Select a Knowledge Base'}
             </h3>
             <p className="text-slate-400 text-sm max-w-md mb-8">
               {document
-                ? 'Ask any question about your document. I\'ll find the most relevant information and provide a cited answer.'
-                : 'Upload a PDF or select an existing document from the sidebar to begin.'}
+                ? 'Ask SAGE anything about your documents. Powered by semantic intelligence, SAGE scans the text and constructs precise, cited answers.'
+                : 'Upload knowledge or select an existing knowledge base from the sidebar to begin.'}
             </p>
 
             {/* Suggested questions */}
@@ -414,7 +414,7 @@ export default function ChatInterface({ document, conversationId, onConversation
                 e.target.style.height = `${Math.min(e.target.scrollHeight, 150)}px`;
               }}
               onKeyDown={handleKeyDown}
-              placeholder={document ? 'Ask anything about your document...' : 'Select a document first'}
+              placeholder={document ? 'Ask SAGE anything about your knowledge base...' : 'Select a knowledge base first'}
               disabled={!document || isLoading}
               rows={1}
               className="w-full bg-transparent px-4 py-3.5 text-sm text-white placeholder-slate-600 resize-none focus:outline-none disabled:opacity-50 max-h-[150px]"

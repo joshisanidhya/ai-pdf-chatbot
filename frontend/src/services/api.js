@@ -18,7 +18,7 @@ const api = axios.create({
 // ── Request Interceptor: attach JWT ──────────────────────────────────────────
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('documind_token');
+    const token = localStorage.getItem('sage_token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -33,8 +33,8 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       // Auto-logout on token expiry
-      localStorage.removeItem('documind_token');
-      localStorage.removeItem('documind_user');
+      localStorage.removeItem('sage_token');
+      localStorage.removeItem('sage_user');
       if (!window.location.pathname.includes('/login')) {
         window.location.href = '/login';
       }

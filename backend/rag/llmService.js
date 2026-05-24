@@ -57,8 +57,8 @@ async function generateWithOpenRouter(messages) {
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://documind-ai.vercel.app',
-        'X-Title': 'DocuMind AI',
+        'HTTP-Referer': 'https://sage-ai.vercel.app',
+        'X-Title': 'SAGE',
       },
       timeout: 60000, // 60s timeout
     }

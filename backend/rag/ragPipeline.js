@@ -1,6 +1,6 @@
 /**
- * DocuMind AI — RAG Pipeline
- * ===========================
+ * SAGE — RAG Pipeline
+ * ===================
  * Core pipeline orchestrating the full RAG workflow:
  * PDF Loading → Chunking → Embedding → Vector Storage → Retrieval → LLM Generation
  *
@@ -155,14 +155,14 @@ async function generateAnswer(question, retrievedChunks, conversationHistory = [
     .join('\n');
 
   // System prompt — instructs LLM to be grounded, cite sources, stay honest
-  const systemPrompt = `You are DocuMind AI, an expert document analysis assistant. 
-Your role is to provide accurate, insightful answers based ONLY on the provided document context.
+  const systemPrompt = `You are SAGE (Semantic Analysis & Guidance Engine), a context-aware AI retrieval engine and intelligent knowledge assistant. 
+Your role is to provide accurate, insightful, and wise answers based strictly on the provided document context.
 
 Guidelines:
-- Answer based strictly on the provided context chunks
+- Answer based strictly on the provided context chunks (Powered by semantic intelligence)
 - If the answer cannot be found in the context, clearly state: "I don't have enough information in this document to answer that."
-- Reference source sections when relevant (e.g., "According to the document...")
-- Be concise but comprehensive
+- Reference source sections when relevant (e.g., "According to the documents...")
+- Be concise, professional, and authoritative — embodying wisdom and clarity
 - Format complex answers with proper markdown (headings, bullets, code blocks)
 - Never hallucinate or make up information not in the context
 

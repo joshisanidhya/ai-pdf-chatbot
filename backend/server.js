@@ -1,5 +1,5 @@
 /**
- * DocuMind AI - Main Server Entry Point
+ * SAGE - Main Server Entry Point
  * Production-grade Express server with security, logging, and RAG pipeline
  */
 
@@ -37,7 +37,7 @@ app.use(helmet({
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:5173',
   'http://localhost:3000',
-  'https://documind-ai.vercel.app',
+  'https://sage-ai.vercel.app',
 ];
 
 app.use(cors({
@@ -88,7 +88,7 @@ app.get('/health', (req, res) => {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     version: '1.0.0',
-    service: 'DocuMind AI Backend',
+    service: 'SAGE Backend',
   });
 });
 
@@ -104,10 +104,11 @@ app.use(errorHandler);
 
 // ── Start Server ───────────────────────────────────────────────────────────────
 const server = app.listen(PORT, () => {
-  logger.info(`🚀 DocuMind AI Backend running on port ${PORT}`);
+  logger.info(`🚀 SAGE Backend running on port ${PORT}`);
   logger.info(`📊 Environment: ${process.env.NODE_ENV}`);
   logger.info(`🔗 Health check: http://localhost:${PORT}/health`);
 });
+
 
 // Graceful shutdown
 process.on('SIGTERM', () => {

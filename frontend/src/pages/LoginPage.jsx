@@ -60,11 +60,11 @@ export default function LoginPage() {
               <Brain className="w-6 h-6 text-white" />
             </div>
             <span className="font-bold text-2xl text-white">
-              Docu<span className="gradient-text">Mind</span> AI
+              SAGE
             </span>
           </Link>
           <h1 className="text-2xl font-bold text-white mb-1">Welcome back</h1>
-          <p className="text-slate-400 text-sm">Sign in to continue chatting with your PDFs</p>
+          <p className="text-slate-400 text-sm">Sign in to continue exploring your knowledge base</p>
         </div>
 
         {/* Form Card */}
@@ -146,7 +146,7 @@ export default function LoginPage() {
           {/* Demo credentials note */}
           <div className="glass-strong rounded-xl p-4 text-center">
             <p className="text-slate-400 text-xs">
-              Demo: <span className="text-brand-400 font-mono">demo@documind.ai</span> / <span className="text-brand-400 font-mono">demo1234</span>
+              Demo: <span className="text-brand-400 font-mono">demo@sage.ai</span> / <span className="text-brand-400 font-mono">demo1234</span>
             </p>
           </div>
         </div>

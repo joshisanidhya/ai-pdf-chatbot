@@ -86,7 +86,7 @@ export default function UploadZone({ onClose }) {
               <Upload className="w-4 h-4 text-brand-400" />
             </div>
             <div>
-              <h2 className="font-semibold text-white text-sm">Upload PDF Document</h2>
+              <h2 className="font-semibold text-white text-sm">Upload Knowledge to SAGE</h2>
               <p className="text-xs text-slate-500">Max 50MB · PDF only</p>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function UploadZone({ onClose }) {
                 className="btn-primary flex-1"
               >
                 <Upload className="w-4 h-4" />
-                Process PDF
+                Ingest Knowledge
               </button>
             </div>
           )}

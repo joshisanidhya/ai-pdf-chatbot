@@ -44,8 +44,8 @@ export function AuthProvider({ children }) {
 
   // ── Initialize auth from localStorage ────────────────────────────────────
   useEffect(() => {
-    const token = localStorage.getItem('documind_token');
-    const storedUser = localStorage.getItem('documind_user');
+    const token = localStorage.getItem('sage_token');
+    const storedUser = localStorage.getItem('sage_user');
 
     if (token && storedUser) {
       try {
@@ -72,8 +72,8 @@ export function AuthProvider({ children }) {
     const res = await authService.login({ email, password });
     const { token, user } = res.data;
 
-    localStorage.setItem('documind_token', token);
-    localStorage.setItem('documind_user', JSON.stringify(user));
+    localStorage.setItem('sage_token', token);
+    localStorage.setItem('sage_user', JSON.stringify(user));
     dispatch({ type: 'SET_AUTH', payload: { token, user } });
     return user;
   }, []);
@@ -82,22 +82,22 @@ export function AuthProvider({ children }) {
     const res = await authService.register({ name, email, password });
     const { token, user } = res.data;
 
-    localStorage.setItem('documind_token', token);
-    localStorage.setItem('documind_user', JSON.stringify(user));
+    localStorage.setItem('sage_token', token);
+    localStorage.setItem('sage_user', JSON.stringify(user));
     dispatch({ type: 'SET_AUTH', payload: { token, user } });
     return user;
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem('documind_token');
-    localStorage.removeItem('documind_user');
+    localStorage.removeItem('sage_token');
+    localStorage.removeItem('sage_user');
     dispatch({ type: 'LOGOUT' });
   }, []);
 
   const updateUser = useCallback((updates) => {
     dispatch({ type: 'UPDATE_USER', payload: updates });
     const user = { ...state.user, ...updates };
-    localStorage.setItem('documind_user', JSON.stringify(user));
+    localStorage.setItem('sage_user', JSON.stringify(user));
   }, [state.user]);
 
   return (

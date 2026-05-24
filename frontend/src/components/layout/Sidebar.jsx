@@ -1,5 +1,5 @@
 /**
- * Sidebar Component — DocuMind AI Dashboard
+ * Sidebar Component — SAGE Dashboard
  * Navigation, document list, and conversation history
  */
 
@@ -102,7 +102,7 @@ export default function Sidebar({ onUploadClick }) {
                 <Brain className="w-4 h-4 text-white" />
               </div>
               <span className="font-bold text-white text-base">
-                Docu<span className="text-brand-400">Mind</span>
+                SAGE
               </span>
             </motion.div>
           )}
@@ -123,7 +123,7 @@ export default function Sidebar({ onUploadClick }) {
           className={`w-full btn-primary gap-2 ${isCollapsed ? 'justify-center px-2' : 'justify-start'}`}
         >
           <Plus className="w-4 h-4 flex-shrink-0" />
-          {!isCollapsed && <span>Upload PDF</span>}
+          {!isCollapsed && <span>Upload Knowledge</span>}
         </button>
       </div>
 
@@ -134,7 +134,7 @@ export default function Sidebar({ onUploadClick }) {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
             <input
               type="text"
-              placeholder="Search documents..."
+              placeholder="Search knowledge..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-white/5 border border-white/10 rounded-lg py-2 pl-8 pr-3 text-xs text-slate-300 placeholder-slate-600 focus:outline-none focus:border-brand-500/40"
@@ -165,14 +165,14 @@ export default function Sidebar({ onUploadClick }) {
         {!isCollapsed && (
           <div className="px-3 py-2">
             <p className="text-xs text-slate-600 uppercase tracking-widest font-semibold mb-2 px-2">
-              Documents ({filteredDocs.length})
+              Knowledge Bases ({filteredDocs.length})
             </p>
             <div className="space-y-1">
               {filteredDocs.length === 0 && !documents.length && (
                 <div className="text-center py-6">
                   <FileText className="w-8 h-8 text-slate-700 mx-auto mb-2" />
-                  <p className="text-slate-600 text-xs">No documents yet</p>
-                  <p className="text-slate-700 text-xs mt-1">Upload a PDF to start</p>
+                  <p className="text-slate-600 text-xs">No knowledge uploaded</p>
+                  <p className="text-slate-700 text-xs mt-1">Upload knowledge to start</p>
                 </div>
               )}
               {filteredDocs.map((doc) => (
