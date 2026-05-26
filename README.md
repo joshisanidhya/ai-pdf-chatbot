@@ -1,474 +1,226 @@
-<div align="center">
+<p align="center">
+  <img src="./frontend/src/images/logo_sage.png" alt="SAGE Logo" width="180" />
+</p>
 
-# 🧠 SAGE
+<h1 align="center">SAGE</h1>
+<h3 align="center">Semantic AI Generation Engine</h3>
 
-### Semantic Analysis & Guidance Engine — Intelligent PDF Knowledge Assistant
+<p align="center">
+  <strong>An Intelligent Retrieval-Augmented Generation (RAG) Platform for Seamless Document Interaction.</strong>
+</p>
 
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=white)](https://react.dev)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org)
-[![LangChain](https://img.shields.io/badge/LangChain-0.3-FF6B35?logo=chainlink&logoColor=white)](https://langchain.com)
-[![MongoDB](https://img.shields.io/badge/MongoDB-8.0-47A248?logo=mongodb&logoColor=white)](https://mongodb.com)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/OpenRouter-000000?style=for-the-badge&logo=openai&logoColor=white" alt="OpenRouter" />
+  <img src="https://img.shields.io/badge/LangChain-121212?style=for-the-badge&logo=chainlink&logoColor=white" alt="LangChain" />
+</p>
 
-**Upload any PDF knowledge base. Ask SAGE anything. Get cited, grounded AI answers.**
+<p align="center">
+  <a href="#-about-sage">About</a> •
+  <a href="#-features">Features</a> •
+  <a href="#%EF%B8%8F-architecture--rag-pipeline">Architecture</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-installation--setup">Installation</a> •
+  <a href="#-deployment">Deployment</a>
+</p>
 
-[Demo](#) · [Documentation](#architecture) · [Quick Start](#quick-start) · [Roadmap](#roadmap)
+<br />
 
----
+## 🧠 About SAGE
 
-</div>
+**SAGE** (Semantic AI Generation Engine) is a production-grade, AI-powered knowledge assistant built to transform how users interact with dense documentation. By leveraging a state-of-the-art **Retrieval-Augmented Generation (RAG)** pipeline, SAGE enables users to upload PDF documents and instantly query them through a natural language interface. 
 
----
+Instead of relying solely on baseline LLM knowledge, SAGE uses strict semantic retrieval algorithms to extract localized context from the uploaded documents, grounding its responses in truth and minimizing hallucinations.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [RAG Pipeline](#rag-pipeline)
-- [Quick Start](#quick-start)
-- [Environment Variables](#environment-variables)
-- [API Reference](#api-reference)
-- [Deployment](#deployment)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-
----
-
-## Overview
-
-**SAGE (Semantic Analysis & Guidance Engine)** is a startup-grade, production-ready RAG (Retrieval-Augmented Generation) application that transforms any PDF document into an interactive, context-aware AI knowledge base.
-
-Built with a clean MVC backend, a modular LangChain pipeline, and a stunning dark-themed React frontend, SAGE demonstrates:
-
-- **Full-stack engineering** across a production Express + MongoDB backend
-- **AI/ML engineering** via a complete RAG pipeline with embeddings and vector search
-- **Modern UI/UX** with glassmorphism, Framer Motion animations, and responsive design
-- **Security-first development** with JWT, Helmet, bcrypt, and rate limiting
-- **Scalable architecture** designed for future expansion (agents, voice, multi-doc, etc.)
+Whether you're analyzing legal contracts, academic papers, or technical manuals, SAGE extracts the facts you need in seconds.
 
 ---
 
-## Features
+## ⚡ Features
 
-### Core MVP
-| Feature | Status |
-|---------|--------|
-| PDF Upload & Text Extraction | ✅ Complete |
-| Recursive Character Text Chunking | ✅ Complete |
-| HuggingFace Embeddings | ✅ Complete |
-| In-Memory Vector Search | ✅ Complete |
-| Multi-Provider LLM (OpenRouter / OpenAI / Ollama) | ✅ Complete |
-| Semantic Retrieval + Context Injection | ✅ Complete |
-| Source Citation Cards | ✅ Complete |
-| Chat History Persistence (MongoDB) | ✅ Complete |
-| JWT Authentication | ✅ Complete |
-| Markdown + Code Block Rendering | ✅ Complete |
-| Copy Response Button | ✅ Complete |
-| AI Response Feedback (👍/👎) | ✅ Complete |
-| Drag & Drop Upload with Progress | ✅ Complete |
-| Collapsible Sidebar | ✅ Complete |
-| Mobile Responsive | ✅ Complete |
-| Toast Notifications | ✅ Complete |
-| Document Management (CRUD) | ✅ Complete |
-| Suggested Questions | ✅ Complete |
+- **Conversational AI Document Chat**: Speak naturally to your documents. Get precise, contextually aware answers in real-time.
+- **Intelligent PDF Parsing & Chunking**: Automatic text extraction and semantic chunking with overlapping context boundaries to preserve meaning.
+- **Local Semantic Embeddings**: Runs `sentence-transformers/all-MiniLM-L6-v2` locally via HuggingFace's `Xenova` transformers for blazing-fast, private, and highly accurate vectorization.
+- **Retrieval-Augmented Generation (RAG)**: Dynamically injects context into LLM prompts to guarantee grounded, highly accurate answers.
+- **Multi-Model LLM Support**: Seamlessly switch between OpenRouter (Mistral, Claude, GPT-4), standard OpenAI API, or local Ollama models.
+- **Secure Authentication**: Fully fledged JWT-based user authentication and document ownership isolation.
+- **Modern System UI**: A stunning, responsive frontend built with React, Vite, TailwindCSS, and Framer Motion for cinematic micro-interactions.
 
 ---
 
-## Tech Stack
+## 🧩 Architecture & RAG Pipeline
 
-### Frontend
-```
-React 18         → Core UI framework
-Vite             → Lightning-fast build tool
-Tailwind CSS     → Utility-first styling
-Framer Motion    → Smooth animations
-React Router 6   → Client-side routing
-React Markdown   → Markdown rendering
-React Dropzone   → Drag & drop uploads
-React Hot Toast  → Toast notifications
-Axios            → HTTP client with interceptors
-Lucide React     → Icon library
-```
+SAGE utilizes a highly optimized extraction-to-generation pipeline:
 
-### Backend
-```
-Node.js + Express   → REST API server
-MongoDB + Mongoose  → Document database
-JWT + bcryptjs      → Authentication & password hashing
-Multer              → File upload handling
-Helmet              → HTTP security headers
-Morgan              → HTTP request logging
-Winston             → Structured application logging
-Express Validator   → Input validation
-express-rate-limit  → API rate limiting
-```
-
-### AI / RAG Pipeline
-```
-LangChain           → RAG orchestration framework
-HuggingFace         → all-MiniLM-L6-v2 embedding model
-MemoryVectorStore   → In-memory vector similarity search
-pdf-parse           → PDF text extraction
-RecursiveCharacterTextSplitter  → Semantic chunking
-OpenRouter          → Multi-model LLM gateway (200+ models)
-OpenAI              → GPT-3.5/GPT-4 support
-Ollama              → Local LLM inference (Llama 3.2, Mistral)
-```
+1. **Ingestion & Parsing**: PDFs are processed on the Node.js backend. Text is extracted and normalized.
+2. **Semantic Chunking**: Using LangChain's `RecursiveCharacterTextSplitter`, text is sliced into optimal token windows (~1000 characters) with a 200-character overlap.
+3. **Vector Embeddings**: Each chunk is passed through the local `all-MiniLM-L6-v2` model to generate 384-dimensional semantic vectors.
+4. **Vector Storage**: Vectors are indexed in memory (or persistently via FAISS/ChromaDB) for hyper-fast retrieval.
+5. **Similarity Search**: When a user asks a question, it is embedded, and a cosine-similarity search retrieves the Top-K most relevant chunks.
+6. **Context Synthesis**: The context and conversational history are compiled into a strict system prompt.
+7. **LLM Generation**: The prompt is processed via OpenRouter (or your preferred LLM provider) to generate a factual, grounded response.
 
 ---
 
-## Architecture
+## 📸 Platform Interface
 
-```
-ai-pdf-chatbot/
-├── backend/                    # Express API Server
-│   ├── config/
-│   │   └── database.js         # MongoDB connection with retry
-│   ├── controllers/
-│   │   ├── authController.js   # Register, login, profile
-│   │   ├── chatController.js   # RAG query + response
-│   │   ├── documentController.js  # Upload, CRUD
-│   │   └── conversationController.js  # Chat history
-│   ├── middleware/
-│   │   ├── auth.js             # JWT protect middleware
-│   │   ├── upload.js           # Multer PDF validator
-│   │   └── errorHandler.js     # Centralized error handling
-│   ├── models/
-│   │   ├── User.js             # User schema + bcrypt
-│   │   ├── Document.js         # PDF document schema
-│   │   └── Conversation.js     # Chat + message schema
-│   ├── rag/
-│   │   ├── ragPipeline.js      # Master RAG orchestration
-│   │   ├── embeddingService.js # HuggingFace embeddings
-│   │   └── llmService.js       # Multi-provider LLM service
-│   ├── routes/
-│   │   ├── auth.js             # /api/auth/*
-│   │   ├── documents.js        # /api/documents/*
-│   │   ├── chat.js             # /api/chat
-│   │   └── conversations.js    # /api/conversations/*
-│   ├── utils/
-│   │   └── logger.js           # Winston structured logger
-│   ├── uploads/                # PDF file storage
-│   └── server.js               # Express entry point
-│
-└── frontend/                   # React + Vite SPA
-    └── src/
-        ├── components/
-        │   ├── chat/
-        │   │   └── ChatInterface.jsx  # Full chat UI
-        │   ├── layout/
-        │   │   └── Sidebar.jsx        # Collapsible sidebar
-        │   └── upload/
-        │       └── UploadZone.jsx     # Drag & drop upload
-        ├── context/
-        │   ├── AuthContext.jsx        # Global auth state
-        │   └── DocumentContext.jsx    # Document state
-        ├── pages/
-        │   ├── LandingPage.jsx        # Marketing homepage
-        │   ├── LoginPage.jsx          # Auth
-        │   ├── RegisterPage.jsx       # Auth
-        │   ├── DashboardPage.jsx      # Document overview
-        │   ├── ChatPage.jsx           # RAG chat interface
-        │   └── NotFoundPage.jsx       # 404
-        └── services/
-            └── api.js                 # Axios + interceptors
+> *Screenshots placeholder — Add your application screenshots here*
+
+<details open>
+<summary><b>Click to view Screenshots</b></summary>
+<br/>
+
+| Landing Page | Application Dashboard |
+|:---:|:---:|
+| `<img src="path/to/landing.png" width="400"/>` | `<img src="path/to/dashboard.png" width="400"/>` |
+
+| PDF Upload Interface | Real-time AI Chat |
+|:---:|:---:|
+| `<img src="path/to/upload.png" width="400"/>` | `<img src="path/to/chat.png" width="400"/>` |
+
+</details>
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend Client
+- **Core Framework**: React 18, Vite
+- **Styling**: TailwindCSS, PostCSS
+- **Animation**: Framer Motion
+- **State & Routing**: React Router DOM
+
+### Backend Services
+- **Core API**: Node.js, Express.js
+- **Database**: MongoDB (Mongoose)
+- **AI / RAG Infrastructure**: LangChain JS
+- **Embeddings**: `@xenova/transformers` (Local HuggingFace pipeline)
+- **File Processing**: `pdf-parse`, `multer`
+- **Security**: JWT, bcryptjs, Helmet, Express Rate Limit
+
+---
+
+## 📂 Project Structure
+
+```text
+sage/
+├── backend/                  # Core API & RAG Engine
+│   ├── config/               # Database & service configurations
+│   ├── controllers/          # Route business logic (Chat, Docs, Auth)
+│   ├── middleware/           # JWT, Upload limits, Error handling
+│   ├── models/               # MongoDB Mongoose schemas
+│   ├── rag/                  # Retrieval-Augmented Generation logic
+│   │   ├── embeddingService.js # Local & Remote Embeddings
+│   │   ├── llmService.js       # Multi-provider LLM interface
+│   │   └── ragPipeline.js      # Core extraction & synthesis flow
+│   ├── routes/               # Express API endpoints
+│   └── utils/                # Winston logger & helpers
+└── frontend/                 # Client Interface
+    ├── public/               # Static assets
+    └── src/                  # React Application
+        ├── components/       # Reusable UI elements
+        ├── pages/            # Application views (Dashboard, Chat)
+        ├── images/           # Brand assets (logo, favicons)
+        └── styles/           # Tailwind / Global CSS
 ```
 
 ---
 
-## RAG Pipeline
-
-```
-User Question
-      │
-      ▼
-┌─────────────────────────────────────┐
-│         RETRIEVAL PHASE             │
-│                                     │
-│  1. PDF Ingestion                   │
-│     └── pdf-parse text extraction   │
-│                                     │
-│  2. Text Chunking                   │
-│     └── RecursiveCharacterSplitter  │
-│         chunk_size: 1000 chars      │
-│         overlap: 200 chars          │
-│                                     │
-│  3. Embedding Generation            │
-│     └── HuggingFace all-MiniLM-L6-v2│
-│         384 dimensions              │
-│                                     │
-│  4. Vector Storage                  │
-│     └── MemoryVectorStore           │
-│         (FAISS/Chroma in prod)      │
-└─────────────────────────────────────┘
-      │
-      ▼ (at query time)
-┌─────────────────────────────────────┐
-│         GENERATION PHASE            │
-│                                     │
-│  5. Semantic Search                 │
-│     └── similaritySearchWithScore   │
-│         top_k: 4 chunks             │
-│         min_score: 0.3              │
-│                                     │
-│  6. Context Injection               │
-│     └── System prompt construction  │
-│         + source chunks             │
-│         + conversation history      │
-│                                     │
-│  7. LLM Generation                  │
-│     └── OpenRouter / OpenAI / Ollama│
-│         temperature: 0.3            │
-│         max_tokens: 1500            │
-└─────────────────────────────────────┘
-      │
-      ▼
-Cited Answer + Source Chunks
-```
-
----
-
-## Quick Start
+## 🚀 Installation & Setup
 
 ### Prerequisites
-
-- Node.js 18+
-- MongoDB (local or Atlas Cluster)
-- One of: OpenRouter API key / OpenAI API key / Ollama running locally
-- HuggingFace API key (free tier works)
+- **Node.js** (v18.0 or higher)
+- **MongoDB** (Local instance or MongoDB Atlas)
+- **OpenRouter API Key** (or OpenAI/Ollama)
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/joshisanidhya/ai-pdf-chatbot.git
-cd ai-pdf-chatbot
+git clone https://github.com/your-username/sage-ai-pdf-chatbot.git
+cd sage-ai-pdf-chatbot
 ```
 
 ### 2. Backend Setup
 
+Navigate to the backend directory, install dependencies, and configure the environment:
+
 ```bash
 cd backend
 npm install
-
-# Copy and configure environment variables
-cp .env.example .env
-# Edit .env with your API keys (see Environment Variables section)
-
-npm run dev
-# Server starts on http://localhost:5000
 ```
 
-### 3. Frontend Setup
-
-```bash
-cd frontend
-npm install
-
-cp .env.example .env
-# Configure VITE_API_URL if not using Vite proxy
-
-npm run dev
-# App opens on http://localhost:5173
-```
-
-### 4. Using Ollama (Free, Local)
-
-```bash
-# Install Ollama: https://ollama.ai
-ollama pull llama3.2   # or mistral, phi3, etc.
-
-# In backend .env:
-LLM_PROVIDER=ollama
-OLLAMA_MODEL=llama3.2
-```
-
-### 5. Using OpenRouter (Recommended)
-
-```bash
-# Sign up at https://openrouter.ai (generous free credits)
-# In backend .env:
-LLM_PROVIDER=openrouter
-OPENROUTER_API_KEY=sk-or-...
-OPENROUTER_MODEL=mistralai/mistral-7b-instruct
-```
-
----
-
-## Environment Variables
-
-### Backend (`backend/.env`)
+Create a `.env` file in the `backend/` directory:
 
 ```env
 # Server
 PORT=5000
 NODE_ENV=development
 
-# Database
+# MongoDB
 MONGODB_URI=mongodb://localhost:27017/sage
 
-# Authentication
-JWT_SECRET=your_super_secret_key_at_least_32_chars
+# Security
+JWT_SECRET=your_super_secret_jwt_key
 JWT_EXPIRES_IN=7d
 
-# LLM Provider (openrouter | openai | ollama)
+# LLM Provider Configuration
 LLM_PROVIDER=openrouter
-OPENROUTER_API_KEY=sk-or-xxxxxxxx
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
 OPENROUTER_MODEL=mistralai/mistral-7b-instruct
-
-# Embeddings
-HUGGINGFACE_API_KEY=hf_xxxxxxxx
-
-# Upload
-MAX_FILE_SIZE_MB=50
-
-# Frontend (for CORS)
-FRONTEND_URL=http://localhost:5173
 ```
 
-### Frontend (`frontend/.env`)
+Start the backend development server:
 
-```env
-VITE_API_URL=http://localhost:5000/api
+```bash
+npm run dev
 ```
 
----
+### 3. Frontend Setup
 
-## API Reference
-
-### Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Create account |
-| POST | `/api/auth/login` | Get JWT token |
-| GET | `/api/auth/me` | Get current user |
-| PUT | `/api/auth/profile` | Update profile |
-
-### Documents (Knowledge Bases)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/documents/upload` | Upload & process PDF |
-| GET | `/api/documents` | List user documents |
-| GET | `/api/documents/:id` | Get document details |
-| DELETE | `/api/documents/:id` | Delete document |
-| POST | `/api/documents/:id/reprocess` | Reprocess failed doc |
-
-### Chat
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/chat` | Send question, get RAG answer |
-| POST | `/api/chat/feedback` | Rate AI response |
-
-### Conversations
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/conversations` | List conversations |
-| GET | `/api/conversations/:id` | Get full conversation |
-| PUT | `/api/conversations/:id` | Update title/pin/archive |
-| DELETE | `/api/conversations/:id` | Delete conversation |
-
----
-
-## Deployment
-
-### Frontend → Vercel
+Open a new terminal, navigate to the frontend directory, install dependencies, and configure the environment:
 
 ```bash
 cd frontend
-npm run build
-
-# Connect to Vercel:
-# 1. Push to GitHub
-# 2. Import project at vercel.com
-# 3. Add env var: VITE_API_URL=https://your-backend.railway.app/api
-# 4. Deploy!
+npm install
 ```
 
-### Backend → Railway / Render
+Create a `.env` file in the `frontend/` directory:
+
+```env
+# Backend API URL
+VITE_API_URL=http://localhost:5000/api
+VITE_APP_NAME=SAGE
+```
+
+Start the Vite development server:
 
 ```bash
-# Railway:
-# 1. Connect GitHub repo
-# 2. Set root directory to /backend
-# 3. Add all environment variables
-# 4. Railway auto-detects Node.js
-
-# Render:
-# 1. New Web Service → connect repo
-# 2. Build command: cd backend && npm install
-# 3. Start command: node server.js
-# 4. Add environment variables
+npm run dev
 ```
 
-### Database → MongoDB Atlas (Free)
-
-```bash
-# 1. Create free cluster at atlas.mongodb.com
-# 2. Get connection string
-# 3. Update MONGODB_URI in production env vars
-```
+The application will now be running on `http://localhost:5173`.
 
 ---
 
-## Roadmap
+## 🌐 Deployment
 
-### Phase 2 — Enhanced RAG
-- [ ] **Persistent Vector Store** (FAISS/ChromaDB with disk persistence)
-- [ ] **Streaming responses** (SSE for real-time token streaming)
-- [ ] **Multi-document RAG** (chat across multiple PDFs simultaneously)
-- [ ] **Re-ranking** (cross-encoder reranking for better retrieval)
-- [ ] **Hybrid search** (keyword + semantic fusion)
+SAGE is built with modern, cloud-native deployments in mind:
 
-### Phase 3 — Advanced Features
-- [ ] **OCR Support** (Tesseract for scanned/image-based PDFs)
-- [ ] **Web search integration** (Tavily/Serper for augmented context)
-- [ ] **Voice assistant** (Web Speech API + TTS)
-- [ ] **AI-generated notes** (auto-summary and key points extraction)
-- [ ] **Flashcard generation** (Anki-style flashcards from content)
-
-### Phase 4 — Agentic Workflows
-- [ ] **Research mode** (autonomous web + document agent)
-- [ ] **Interview prep mode** (Q&A generation from document)
-- [ ] **YouTube transcript ingestion**
-- [ ] **Multi-user workspace/team support**
-- [ ] **Zapier/Webhook integrations**
+- **Frontend (Vercel)**:
+  Connect the repository to Vercel, set the root directory to `frontend`, and configure the `VITE_API_URL` environment variable.
+  
+- **Backend (Render / Railway / Heroku)**:
+  Deploy the backend directory to Render as a Web Service. Ensure that the Node startup command executes `node --dns-result-order=ipv4first server.js` to seamlessly support HuggingFace local model downloads.
+  
+- **Database (MongoDB Atlas)**:
+  Provision a free cluster on MongoDB Atlas and update the `MONGODB_URI` environment variable on your backend host.
 
 ---
 
-## Contributing
-
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) first.
-
-```bash
-# 1. Fork the repository
-# 2. Create your feature branch
-git checkout -b feature/amazing-feature
-
-# 3. Commit your changes (conventional commits)
-git commit -m "feat: add streaming response support"
-
-# 4. Push to the branch
-git push origin feature/amazing-feature
-
-# 5. Open a Pull Request
-```
-
----
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-<div align="center">
-
-**Built with ❤️ by [Sanidhya Joshi](https://github.com/joshisanidhya)**
-
-*A portfolio project demonstrating production-grade AI/full-stack engineering*
-
-⭐ Star this repo if you found it useful!
-
-</div>
+<p align="center">
+  Built with precision and purpose. <br/>
+  <b>SAGE</b> © 2026 
+</p>
