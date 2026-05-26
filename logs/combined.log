@@ -1,0 +1,164 @@
+17:24:13 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:24:13 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:24:13 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:24:14 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+17:28:19 [[32minfo[39m]: [32m✅ New user registered: sanidhya27306@gmail.com[39m
+17:28:44 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a158adb5ad88341a83b10df[39m
+17:28:44 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: 53a56412-bc8d-479b-9f3a-181ffaaacb73.pdf[39m
+17:28:45 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:28:45 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:28:45 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:28:45 [[32minfo[39m]: [32m✅ Using HuggingFace API embeddings: Xenova/all-MiniLM-L6-v2[39m
+17:30:09 [[31merror[39m]: [31mVector store creation failed:[39m
+17:30:09 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:30:09 [[31merror[39m]: Error: Embedding generation failed: No Inference Provider available for model Xenova/all-MiniLM-L6-v2.
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:3)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:33:49 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:33:49 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:33:49 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:33:50 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+17:39:07 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:39:07 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:39:07 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:39:08 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+17:39:42 [[32minfo[39m]: [32m🗑️  Cleared vector store: 55397ef2-4559-460e-a6e7-5599da43ab34[39m
+17:39:42 [[32minfo[39m]: [32m🗑️  Document deleted: 6a158af45ad88341a83b10ee[39m
+17:39:49 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a158adb5ad88341a83b10df[39m
+17:39:49 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: 5c9bd982-df19-4781-8364-0e6552e840df.pdf[39m
+17:39:50 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:39:50 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:39:50 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:39:50 [[31merror[39m]: [31mEmbedding initialization failed:[39m
+17:39:50 [[31merror[39m]: [31mVector store creation failed:[39m
+17:39:50 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:39:50 [[31merror[39m]: Error: Embedding generation failed: Embedding service initialization failed
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:9)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:39:54 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a158adb5ad88341a83b10df[39m
+17:39:54 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: d000b7be-4b23-4649-8035-b7f0123154be.pdf[39m
+17:39:54 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:39:54 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:39:54 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:39:54 [[31merror[39m]: [31mVector store creation failed:[39m
+17:39:54 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:39:54 [[31merror[39m]: Error: Embedding generation failed: require() of ES Module /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/transformers.js from /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs not supported.
+Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs to a dynamic import() which is available in all CommonJS modules.
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:3)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:41:52 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a158adb5ad88341a83b10df[39m
+17:41:52 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: bfafc306-a9ce-40b4-be7c-6e9f577d4615.pdf[39m
+17:41:52 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:41:52 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:41:52 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:41:52 [[31merror[39m]: [31mVector store creation failed:[39m
+17:41:52 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:41:52 [[31merror[39m]: Error: Embedding generation failed: require() of ES Module /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/transformers.js from /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs not supported.
+Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs to a dynamic import() which is available in all CommonJS modules.
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:3)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:46:13 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:46:13 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:46:13 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:46:14 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+17:46:56 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:46:56 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:46:56 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:46:56 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-01.zhpingp.mongodb.net[39m
+17:47:44 [[32minfo[39m]: [32m🗑️  Cleared vector store: 67448573-1315-464b-b19b-f38f252bef4a[39m
+17:47:44 [[32minfo[39m]: [32m🗑️  Document deleted: 6a158e0898d1b44b7b361c93[39m
+17:47:46 [[32minfo[39m]: [32m🗑️  Cleared vector store: 783f195f-e784-469d-a6ec-c6eec988fbad[39m
+17:47:46 [[32minfo[39m]: [32m🗑️  Document deleted: 6a158d9298d1b44b7b361c8e[39m
+17:47:50 [[32minfo[39m]: [32m🗑️  Cleared vector store: 38f66580-2192-4b2f-99aa-849ff9cb2c5b[39m
+17:47:51 [[32minfo[39m]: [32m🗑️  Document deleted: 6a158d8d98d1b44b7b361c89[39m
+17:47:58 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a158adb5ad88341a83b10df[39m
+17:47:58 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: 06634704-436d-433e-88d8-990c4a252a6a.pdf[39m
+17:47:59 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:47:59 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:47:59 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:47:59 [[31merror[39m]: [31mEmbedding initialization failed:[39m
+17:47:59 [[31merror[39m]: [31mVector store creation failed:[39m
+17:47:59 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:47:59 [[31merror[39m]: Error: Embedding generation failed: Embedding service initialization failed
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:9)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:49:04 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:49:04 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:49:04 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:49:04 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+17:49:18 [[32minfo[39m]: [32m🗑️  Cleared vector store: 6d47ae0b-8f88-414d-a6e4-8b8233d8f5fe[39m
+17:49:18 [[32minfo[39m]: [32m🗑️  Document deleted: 6a158f76f429af2d53ce7591[39m
+17:49:23 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a158adb5ad88341a83b10df[39m
+17:49:23 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: b6889faa-38a1-4ca4-b104-ab5b5ccb92dc.pdf[39m
+17:49:23 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:49:23 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:49:23 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:49:23 [[31merror[39m]: [31mEmbedding initialization failed:[39m
+17:49:23 [[31merror[39m]: [31mVector store creation failed:[39m
+17:49:23 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:49:23 [[31merror[39m]: Error: Embedding generation failed: Embedding service initialization failed
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:9)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:53:32 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+17:53:32 [[32minfo[39m]: [32m📊 Environment: development[39m
+17:53:32 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+17:53:32 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+17:54:41 [[31merror[39m]: Error: Route not found: GET /favicon.ico
+    at notFound (/home/sanidhya-joshi/ai-pdf-chatbot/backend/middleware/errorHandler.js:12:17)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at logger (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+17:55:39 [[31merror[39m]: Error: Route not found: GET /
+    at notFound (/home/sanidhya-joshi/ai-pdf-chatbot/backend/middleware/errorHandler.js:12:17)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at logger (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+17:58:13 [[32minfo[39m]: [32m✅ New user registered: sanidhya@sage.ai[39m
+17:59:46 [[32minfo[39m]: [32m📤 Processing document: SanidhyaJoshi_CV.pdf for user: 6a1591dc69fab0bccdad0665[39m
+17:59:46 [[32minfo[39m]: [32m🔄 Starting RAG pipeline for: 2fd17cc2-b82e-4b39-8077-cc68e11b0bc1.pdf[39m
+17:59:48 [[32minfo[39m]: [32m📄 Extracted: 1 pages, ~399 words[39m
+17:59:48 [[32minfo[39m]: [32m✂️  Created 4 chunks[39m
+17:59:48 [[32minfo[39m]: [32mCreating vector store for 4 chunks...[39m
+17:59:48 [[32minfo[39m]: [32m💡 SAGE Embeddings: HuggingFace inference initialized[39m
+17:59:48 [[33mwarn[39m]: [33m⚠️ SAGE Embeddings: HuggingFace embedDocuments failed (fetch failed). Falling back to local embeddings.[39m
+17:59:48 [[32minfo[39m]: [32m✅ Vector store created: 00df5c23-8b8e-43ca-8176-3aef9822da5e[39m
+17:59:48 [[32minfo[39m]: [32m✅ Document processed successfully: 6a15923a69fab0bccdad0674[39m
+18:00:56 [[32minfo[39m]: [32m💬 Processing query: "What is this document about?..." for doc: 6a15923a69fab0bccdad0674[39m
+18:00:56 [[32minfo[39m]: [32mRetrieved 0 relevant chunks for query[39m
+18:00:56 [[32minfo[39m]: [32m✅ Response generated in 0ms[39m
+18:02:38 [[32minfo[39m]: [32m💬 Processing query: "what is this doc about?..." for doc: 6a15923a69fab0bccdad0674[39m
+18:02:38 [[32minfo[39m]: [32mRetrieved 0 relevant chunks for query[39m
+18:02:38 [[32minfo[39m]: [32m✅ Response generated in 0ms[39m
+18:10:19 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+18:10:19 [[32minfo[39m]: [32m📊 Environment: development[39m
+18:10:19 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+18:10:19 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+18:11:48 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+18:11:48 [[32minfo[39m]: [32m📊 Environment: development[39m
+18:11:48 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+18:11:49 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+18:14:27 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+18:14:27 [[32minfo[39m]: [32m📊 Environment: development[39m
+18:14:27 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+18:14:27 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m

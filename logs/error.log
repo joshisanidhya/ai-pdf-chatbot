@@ -1,0 +1,66 @@
+17:30:09 [[31merror[39m]: [31mVector store creation failed:[39m
+17:30:09 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:30:09 [[31merror[39m]: Error: Embedding generation failed: No Inference Provider available for model Xenova/all-MiniLM-L6-v2.
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:3)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:39:50 [[31merror[39m]: [31mEmbedding initialization failed:[39m
+17:39:50 [[31merror[39m]: [31mVector store creation failed:[39m
+17:39:50 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:39:50 [[31merror[39m]: Error: Embedding generation failed: Embedding service initialization failed
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:9)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:39:54 [[31merror[39m]: [31mVector store creation failed:[39m
+17:39:54 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:39:54 [[31merror[39m]: Error: Embedding generation failed: require() of ES Module /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/transformers.js from /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs not supported.
+Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs to a dynamic import() which is available in all CommonJS modules.
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:3)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:41:52 [[31merror[39m]: [31mVector store creation failed:[39m
+17:41:52 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:41:52 [[31merror[39m]: Error: Embedding generation failed: require() of ES Module /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/transformers.js from /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs not supported.
+Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@langchain/community/dist/embeddings/hf_transformers.cjs to a dynamic import() which is available in all CommonJS modules.
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:3)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:47:59 [[31merror[39m]: [31mEmbedding initialization failed:[39m
+17:47:59 [[31merror[39m]: [31mVector store creation failed:[39m
+17:47:59 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:47:59 [[31merror[39m]: Error: Embedding generation failed: Embedding service initialization failed
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:9)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:49:23 [[31merror[39m]: [31mEmbedding initialization failed:[39m
+17:49:23 [[31merror[39m]: [31mVector store creation failed:[39m
+17:49:23 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+17:49:23 [[31merror[39m]: Error: Embedding generation failed: Embedding service initialization failed
+    at createVectorStore (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:104:11)
+    at processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:212:9)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+17:54:41 [[31merror[39m]: Error: Route not found: GET /favicon.ico
+    at notFound (/home/sanidhya-joshi/ai-pdf-chatbot/backend/middleware/errorHandler.js:12:17)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at logger (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+17:55:39 [[31merror[39m]: Error: Route not found: GET /
+    at notFound (/home/sanidhya-joshi/ai-pdf-chatbot/backend/middleware/errorHandler.js:12:17)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at logger (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9

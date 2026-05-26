@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'react-motion'; // Wait, let's make sure we import from 'framer-motion'
+
 import { motion as motionBase } from 'framer-motion';
 import {
   Brain, FileText, Zap, Shield, MessageSquare,
