@@ -75,3 +75,5 @@ Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-cha
     at async Promise.all (index 0)
     at async loadItems (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3279:5)
     at async pipeline (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3219:21)
+19:01:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:01:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m

@@ -189,3 +189,11 @@ Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-cha
 18:28:32 [[32minfo[39m]: [32m📊 Environment: development[39m
 18:28:32 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
 18:28:34 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-02.zhpingp.mongodb.net[39m
+19:01:00 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+19:01:00 [[32minfo[39m]: [32m📊 Environment: development[39m
+19:01:00 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+19:01:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:01:05 [[32minfo[39m]: [32mRetrying MongoDB connection in 5 seconds...[39m
+19:01:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:01:15 [[32minfo[39m]: [32mRetrying MongoDB connection in 5 seconds...[39m
+19:01:21 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
