@@ -1,7 +1,7 @@
 <div align="center">
   <img src="frontend/images/sage_logo.png" alt="SAGE Logo" width="120" />
 
-  # SAGE
+
   **Semantic AI Generation Engine**
 
   *AI-Powered Semantic Document Intelligence Platform*
