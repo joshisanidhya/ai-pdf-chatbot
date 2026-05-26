@@ -124,9 +124,10 @@ async function retrieveRelevantChunks(query, vectorStoreId, topK = 4) {
   // Similarity search with relevance score
   const results = await vectorStore.similaritySearchWithScore(query, topK);
 
-  // Filter by minimum similarity threshold (cosine similarity > 0.3)
+  // Filter by minimum similarity threshold
+  // Lowered threshold to 0.15 since all-MiniLM-L6-v2 cosine similarity can be conservative
   const filtered = results
-    .filter(([, score]) => score > 0.3)
+    .filter(([, score]) => score > 0.15)
     .map(([doc, score]) => ({
       content: doc.pageContent,
       metadata: doc.metadata,
@@ -134,6 +135,10 @@ async function retrieveRelevantChunks(query, vectorStoreId, topK = 4) {
     }));
 
   logger.info(`Retrieved ${filtered.length} relevant chunks for query`);
+  filtered.forEach((chunk, i) => {
+    logger.info(`[Chunk ${i}] Score: ${chunk.score} | Preview: ${chunk.content.substring(0, 100).replace(/\\n/g, ' ')}...`);
+  });
+
   return filtered;
 }
 

@@ -162,3 +162,30 @@ Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-cha
 18:14:27 [[32minfo[39m]: [32m📊 Environment: development[39m
 18:14:27 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
 18:14:27 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+18:27:07 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+18:27:07 [[32minfo[39m]: [32m📊 Environment: development[39m
+18:27:07 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+18:27:08 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+18:27:16 [[32minfo[39m]: [32m💡 SAGE Embeddings: Xenova local transformer initialized (sentence-transformers/all-MiniLM-L6-v2)[39m
+18:27:17 [[31merror[39m]: TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11360:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getModelFile (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/utils/hub.js:468:24)
+    at async getModelJSON (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/utils/hub.js:572:18)
+    at async Promise.all (index 0)
+    at async loadTokenizer (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/tokenizers.js:61:18)
+    at async AutoTokenizer.from_pretrained (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/tokenizers.js:4459:50)
+    at async Promise.all (index 0)
+    at async loadItems (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3279:5)
+    at async pipeline (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3219:21)
+18:27:26 [[32minfo[39m]: [32m💡 SAGE Embeddings: Xenova local transformer initialized (sentence-transformers/all-MiniLM-L6-v2)[39m
+18:27:38 [[32minfo[39m]: [32mGenerating embeddings for 2 chunks locally...[39m
+18:27:38 [[32minfo[39m]: [32mSuccessfully generated embeddings of dimension 384[39m
+18:27:56 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+18:27:56 [[32minfo[39m]: [32m📊 Environment: development[39m
+18:27:56 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+18:27:57 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-00.zhpingp.mongodb.net[39m
+18:28:32 [[32minfo[39m]: [32m🚀 SAGE Backend running on port 5000[39m
+18:28:32 [[32minfo[39m]: [32m📊 Environment: development[39m
+18:28:32 [[32minfo[39m]: [32m🔗 Health check: http://localhost:5000/health[39m
+18:28:34 [[32minfo[39m]: [32m✅ MongoDB connected: ac-ii4b6yp-shard-00-02.zhpingp.mongodb.net[39m

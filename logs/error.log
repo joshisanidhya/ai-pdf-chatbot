@@ -64,3 +64,14 @@ Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-cha
     at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
     at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+18:27:17 [[31merror[39m]: TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11360:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async getModelFile (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/utils/hub.js:468:24)
+    at async getModelJSON (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/utils/hub.js:572:18)
+    at async Promise.all (index 0)
+    at async loadTokenizer (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/tokenizers.js:61:18)
+    at async AutoTokenizer.from_pretrained (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/tokenizers.js:4459:50)
+    at async Promise.all (index 0)
+    at async loadItems (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3279:5)
+    at async pipeline (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3219:21)
