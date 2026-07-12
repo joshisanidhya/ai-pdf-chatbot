@@ -22,8 +22,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#0A0A0A]/92 backdrop-blur-md border-b border-white/[0.06] py-3' : 'bg-transparent py-5'
+    <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      scrolled 
+        ? 'bg-[#050505]/75 backdrop-blur-lg border-b border-white/[0.08] py-3.5 shadow-lg shadow-black/25' 
+        : 'bg-[#050505]/20 backdrop-blur-md border-b border-white/[0.02] py-5.5'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo Left */}
