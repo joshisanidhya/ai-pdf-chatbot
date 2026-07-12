@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Brain, Upload, MessageSquare, Search, Zap, Shield, 
-  ChevronRight, Sparkles, Plus, ArrowUpRight 
+import {
+  Brain, Upload, MessageSquare, Search, Zap, Shield,
+  ChevronRight, Sparkles, Plus, ArrowUpRight
 } from 'lucide-react';
 
 // Import Custom Background Components
@@ -34,47 +34,47 @@ const techStack = [
 
 // Capabilities List
 const capabilities = [
-  { 
-    icon: Upload,       
-    title: 'Instant PDF Ingestion',    
-    desc: 'Drag and drop any PDF manual, contract, or textbook. SAGE extracts and processes raw text instantly.',            
-    stat: 96, 
-    label: 'Extraction Accuracy' 
+  {
+    icon: Upload,
+    title: 'Instant PDF Ingestion',
+    desc: 'Drag and drop any PDF manual, contract, or textbook. SAGE extracts and processes raw text instantly.',
+    stat: 96,
+    label: 'Extraction Accuracy'
   },
-  { 
-    icon: Brain,        
-    title: 'Local Semantic Indexing',  
-    desc: 'Generate high-fidelity vector embeddings locally using sentence-transformers, completely free.',           
-    stat: 98, 
-    label: 'Similarity Threshold' 
+  {
+    icon: Brain,
+    title: 'Local Semantic Indexing',
+    desc: 'Generate high-fidelity vector embeddings locally using sentence-transformers, completely free.',
+    stat: 98,
+    label: 'Similarity Threshold'
   },
-  { 
+  {
     icon: MessageSquare,
-    title: 'Cited AI Conversations',   
-    desc: 'Interact with your documents using natural dialogue. SAGE synthesizes verified responses instantly.',             
-    stat: 99, 
-    label: 'Grounding Rate'  
+    title: 'Cited AI Conversations',
+    desc: 'Interact with your documents using natural dialogue. SAGE synthesizes verified responses instantly.',
+    stat: 99,
+    label: 'Grounding Rate'
   },
-  { 
-    icon: Search,       
-    title: 'Source Footnotes', 
-    desc: 'No hallucinations. Every answer includes specific citation cards linking back to the source text.',                      
+  {
+    icon: Search,
+    title: 'Source Footnotes',
+    desc: 'No hallucinations. Every answer includes specific citation cards linking back to the source text.',
     stat: 100,
-    label: 'Verification Rate'  
+    label: 'Verification Rate'
   },
-  { 
-    icon: Zap,          
-    title: 'Sub-Second Retrieval',   
-    desc: 'Query thousands of vector nodes in milliseconds. SAGE returns key document sections immediately.',          
-    stat: 92, 
-    label: 'Speed Index'    
+  {
+    icon: Zap,
+    title: 'Sub-Second Retrieval',
+    desc: 'Query thousands of vector nodes in milliseconds. SAGE returns key document sections immediately.',
+    stat: 92,
+    label: 'Speed Index'
   },
-  { 
-    icon: Shield,       
-    title: 'Isolated Data Sandbox', 
-    desc: 'Your documents never train external models. Secure user sessions are enforced with JWT boundaries.',       
+  {
+    icon: Shield,
+    title: 'Isolated Data Sandbox',
+    desc: 'Your documents never train external models. Secure user sessions are enforced with JWT boundaries.',
     stat: 100,
-    label: 'Privacy Isolation' 
+    label: 'Privacy Isolation'
   },
 ];
 
@@ -109,13 +109,13 @@ const containerVariants = {
 // Fluid scroll entry animation for child elements
 const itemVariants = {
   hidden: { opacity: 0, y: 30, filter: 'blur(7px)' },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     filter: 'blur(0px)',
-    transition: { 
-      duration: 0.8, 
-      ease: [0.16, 1, 0.3, 1] 
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1]
     }
   }
 };
@@ -126,14 +126,14 @@ function FAQItem({ q, a, variants }) {
 
   return (
     <motion.div variants={variants} className="border-b border-white/[0.08] py-5">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between text-left gap-4 py-2 group cursor-pointer focus:outline-none"
       >
         <span className="text-[#F5F5F0] font-medium text-sm sm:text-base group-hover:text-white transition-colors duration-200">
           {q}
         </span>
-        <motion.span 
+        <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ type: 'spring', stiffness: 180, damping: 14 }}
           className="flex-shrink-0 text-[#FF6B2C]"
@@ -141,7 +141,7 @@ function FAQItem({ q, a, variants }) {
           <Plus className="w-5 h-5" />
         </motion.span>
       </button>
-      
+
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
@@ -164,7 +164,7 @@ function FAQItem({ q, a, variants }) {
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-[#F5F5F0] overflow-x-hidden relative">
-      
+
       {/* ── Background & Effects Layer (Full bleed background) ───────────────────── */}
       <HeroGlow />
       <FloatingGradient />
@@ -176,13 +176,13 @@ export default function LandingPage() {
       {/* Extra floating blobs for structural depth */}
       <GlowBlob color="from-amber-600 to-[#FF6B2C]" size="w-[30vw] h-[30vw]" position="top-[120vh] right-[10%]" delay={2} />
       <GlowBlob color="from-[#E63946] to-amber-700" size="w-[35vw] h-[35vw]" position="top-[250vh] left-[5%]" delay={5} />
-      
+
       {/* ── Sticky Navigation ────────────────────────────── */}
       <Navbar />
 
       {/* ── Centered Grid Layout Frame ─────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto border-l border-r border-white/[0.06] relative bg-[#050505]/30 min-h-screen z-20">
-        
+
         {/* Top visual divider for the navbar region alignment */}
         <div className="absolute top-0 left-0 right-0 h-px bg-white/[0.06] z-30" />
 
@@ -200,16 +200,16 @@ export default function LandingPage() {
             <p className="text-center text-[10px] font-semibold text-[#9A9A9A] uppercase tracking-[0.25em] mb-6">
               Trusted by top innovative teams &amp; built with
             </p>
-            
+
             <div className="relative w-full overflow-hidden py-2">
               {/* Edge fade gradients */}
               <div className="absolute left-0 top-0 bottom-0 w-20 md:w-36 bg-gradient-to-r from-[#050505]/95 to-transparent z-10 pointer-events-none" />
               <div className="absolute right-0 top-0 bottom-0 w-20 md:w-36 bg-gradient-to-l from-[#050505]/95 to-transparent z-10 pointer-events-none" />
-              
+
               <div className="flex gap-16 items-center w-max animate-marquee">
                 {[...techStack, ...techStack].map((tech, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="flex items-center gap-3.5 grayscale opacity-35 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   >
                     <span className="text-xl">{tech.logo}</span>
@@ -225,7 +225,7 @@ export default function LandingPage() {
         </section>
 
         {/* Split Feature Section */}
-        <motion.section 
+        <motion.section
           id="how-it-works"
           initial="hidden"
           whileInView="visible"
@@ -234,11 +234,11 @@ export default function LandingPage() {
           className="px-6 sm:px-10 md:px-16 py-28 md:py-36 relative z-20 border-b border-white/[0.06]"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            
+
             {/* Left Column: Visual widget with mouse parallax */}
             <motion.div variants={itemVariants} className="flex items-center justify-center relative py-6">
               <div className="absolute w-64 h-64 bg-[#FF6B2C] rounded-full blur-[100px] opacity-[0.14] pointer-events-none" />
-              
+
               {/* Keyframes for the glowing moving white orb/highlight */}
               <style>{`
                 @keyframes orb-slide-keyframes {
@@ -272,7 +272,7 @@ export default function LandingPage() {
                     </div>
                     <span className="text-[10px] text-[#FF6B2C] bg-[#FF6B2C]/10 px-2.5 py-0.5 rounded-full font-medium">Active</span>
                   </div>
-                  
+
                   <div className="bg-black/30 border border-white/5 rounded-2xl p-5 space-y-4 mb-3">
                     {[['Keyword Search', 28], ['Semantic RAG', 98]].map(([label, score]) => (
                       <div key={label} className="relative">
@@ -283,20 +283,19 @@ export default function LandingPage() {
                         <div className="relative h-1.5 flex items-center">
                           {/* Track background */}
                           <div className="absolute inset-x-0 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-                            <motion.div 
+                            <motion.div
                               initial={{ width: 0 }}
                               whileInView={{ width: `${score}%` }}
                               viewport={{ once: true }}
                               transition={{ duration: 1.2, ease: 'easeOut' }}
-                              className={`h-full rounded-full ${
-                                score > 50 ? 'bg-gradient-to-r from-[#FF6B2C] to-[#E63946]' : 'bg-white/20'
-                              }`}
+                              className={`h-full rounded-full ${score > 50 ? 'bg-gradient-to-r from-[#FF6B2C] to-[#E63946]' : 'bg-white/20'
+                                }`}
                             />
                           </div>
 
                           {/* Glowing Animated Orb (Semantic RAG) */}
                           {score > 50 && (
-                            <div 
+                            <div
                               className="absolute left-0 top-0 bottom-0 pointer-events-none z-10 overflow-visible"
                               style={{ width: `${score}%` }}
                             >
@@ -317,7 +316,7 @@ export default function LandingPage() {
 
                           {/* Dimmer racing dot (Keyword Search) */}
                           {score <= 50 && (
-                            <div 
+                            <div
                               className="absolute left-0 top-0 bottom-0 pointer-events-none z-10 overflow-visible"
                               style={{ width: `${score}%` }}
                             >
@@ -332,7 +331,7 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-2 flex-wrap mt-4">
                     <span className="text-[9px] bg-white/5 border border-white/5 text-[#9A9A9A] px-2 py-0.5 rounded">all-MiniLM-L6-v2</span>
                     <span className="text-[9px] bg-[#FF6B2C]/5 border border-[#FF6B2C]/15 text-[#FF824D] px-2 py-0.5 rounded">Local Embedder</span>
@@ -350,8 +349,8 @@ export default function LandingPage() {
               <p className="text-base text-[#9A9A9A] mb-8 leading-relaxed">
                 SAGE leverages semantic vector spaces to locate exact context segments within long, complex manuals or academic books in milliseconds. Ask questions in plain language and receive cited answers instantly.
               </p>
-              <Link 
-                to="/register" 
+              <Link
+                to="/register"
                 className="btn-primary text-xs py-3 px-6 gap-2"
               >
                 <span>Learn More</span>
@@ -367,7 +366,7 @@ export default function LandingPage() {
         </motion.section>
 
         {/* ── Capabilities Section (Redesigned as Hub-and-Spoke Grid) ───────────────────── */}
-        <motion.section 
+        <motion.section
           id="capabilities"
           initial="hidden"
           whileInView="visible"
@@ -384,7 +383,7 @@ export default function LandingPage() {
               A production-ready Semantic AI Retrieval engine designed for local, grounded document search.
             </p>
           </motion.div>
- 
+
           {/* Desktop Version: High-Fidelity Hub-and-Spoke Grid (lg:block hidden) */}
           <div className="relative w-full h-[650px] max-w-5xl mx-auto hidden lg:block select-none">
             {/* Style Block for Pulsing Beams */}
@@ -398,13 +397,13 @@ export default function LandingPage() {
               .animate-beam-pulse-3 { animation: beam-pulse 3.8s ease-in-out infinite; animation-delay: 1.2s; }
               .animate-beam-pulse-4 { animation: beam-pulse 4.5s ease-in-out infinite; animation-delay: 1.8s; }
             `}</style>
- 
+
             {/* Faint crosshair decorative lines */}
             <div className="absolute inset-0 pointer-events-none z-0">
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.06] -translate-x-1/2" />
               <div className="absolute left-0 right-0 top-1/2 h-px bg-white/[0.06] -translate-y-1/2" />
             </div>
- 
+
             {/* SVG Radiating Light Beams */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -425,14 +424,14 @@ export default function LandingPage() {
                   <stop offset="100%" stopColor="#FF6B2C" stopOpacity="0" />
                 </linearGradient>
               </defs>
-              
+
               {/* Coordinates connecting Hub Center (50%, 50%) to respective spokes */}
               <line x1="50%" y1="50%" x2="16.66%" y2="12%" stroke="url(#beam-top-left)" strokeWidth="2" className="animate-beam-pulse-1" />
               <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="url(#beam-top-center)" strokeWidth="2" className="animate-beam-pulse-2" />
               <line x1="50%" y1="50%" x2="83.33%" y2="12%" stroke="url(#beam-top-right)" strokeWidth="2" className="animate-beam-pulse-3" />
               <line x1="50%" y1="50%" x2="50%" y2="88%" stroke="url(#beam-bottom)" strokeWidth="2" className="animate-beam-pulse-4" />
             </svg>
- 
+
             <div className="relative z-10 w-full h-full flex flex-col justify-between items-center py-6">
               {/* Row 1: Top 3 Items */}
               <div className="grid grid-cols-3 w-full gap-8">
@@ -446,7 +445,7 @@ export default function LandingPage() {
                     Extract text structures, tables, and sections from long PDF manuals instantly.
                   </p>
                 </motion.div>
- 
+
                 {/* Top Center */}
                 <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
                   <div className="w-[56px] h-[56px] rounded-[12px] border border-[#FF6B2C]/40 bg-[#0A0A0A] flex items-center justify-center mb-4">
@@ -457,7 +456,7 @@ export default function LandingPage() {
                     Generate high-fidelity vector nodes locally using sentence-transformers.
                   </p>
                 </motion.div>
- 
+
                 {/* Top Right */}
                 <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
                   <div className="w-[56px] h-[56px] rounded-[12px] border border-[#FF6B2C]/40 bg-[#0A0A0A] flex items-center justify-center mb-4">
@@ -469,12 +468,12 @@ export default function LandingPage() {
                   </p>
                 </motion.div>
               </div>
- 
+
               {/* Row 2: Center Hub */}
               <div className="relative w-full h-[180px] flex items-center justify-center">
                 <div className="relative w-[180px] h-[180px] flex items-center justify-center">
                   {/* Outer glow ring */}
-                  <div 
+                  <div
                     className="absolute w-[180px] h-[180px] rounded-full blur-[25px] opacity-[0.16] pointer-events-none"
                     style={{ background: 'radial-gradient(circle, #FF6B2C 0%, transparent 70%)' }}
                   />
@@ -486,7 +485,7 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Row 3: Bottom 1 Item */}
               <div className="w-full flex justify-center">
                 <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
@@ -501,7 +500,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
- 
+
           {/* Mobile/Tablet Version: Responsive Grid (lg:hidden block) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden max-w-2xl mx-auto">
             {[
@@ -529,7 +528,7 @@ export default function LandingPage() {
         </motion.section>
 
         {/* Why Choose Us Section */}
-        <motion.section 
+        <motion.section
           id="why"
           initial="hidden"
           whileInView="visible"
@@ -538,7 +537,7 @@ export default function LandingPage() {
           className="px-6 sm:px-10 md:px-16 py-20 md:py-28 relative z-20 border-b border-white/[0.06]"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            
+
             {/* Left Column: Benefit List */}
             <motion.div variants={itemVariants}>
               <span className="text-[#FF6B2C] text-xs font-semibold uppercase tracking-widest mb-4 block">Why SAGE?</span>
@@ -550,8 +549,8 @@ export default function LandingPage() {
               </p>
               <div className="space-y-4">
                 {benefits.map((b, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     variants={itemVariants}
                     className="flex items-start gap-3"
                   >
@@ -567,7 +566,7 @@ export default function LandingPage() {
             {/* Right Column: Dynamic Mockup Container */}
             <motion.div variants={itemVariants} className="relative">
               <div className="absolute inset-0 bg-[#FF6B2C] blur-[120px] opacity-[0.06] rounded-3xl pointer-events-none" />
-              
+
               <MouseParallax factor={8}>
                 <div className="glass rounded-3xl p-6.5 border border-white/[0.08] shadow-dark-lg">
                   <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/[0.05]">
@@ -580,16 +579,16 @@ export default function LandingPage() {
                     </div>
                     <span className="ml-auto text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-medium">Verified</span>
                   </div>
-                  
+
                   <p className="text-[#9A9A9A] text-[11px] italic mb-3">User: "What is the security boundary of this RAG workspace?"</p>
                   <p className="text-[#F5F5F0] text-sm leading-relaxed mb-6">
                     SAGE ensures complete containment by generating and indexing document vectors locally on your server database. User contexts are strictly isolated using JWT boundary signatures...
                   </p>
-                  
+
                   <div className="space-y-2">
                     {['Source: architecture_spec.pdf — Page 8, §4.2', 'Confidence: 98.6% • local-MiniLM model'].map((t, idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className="flex items-center gap-2 text-xs text-[#9A9A9A] bg-white/[0.02] border border-white/[0.04] rounded-lg px-3 py-2"
                       >
                         <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]" />
@@ -607,7 +606,7 @@ export default function LandingPage() {
         </motion.section>
 
         {/* FAQ Accordion Section */}
-        <motion.section 
+        <motion.section
           id="faq"
           initial="hidden"
           whileInView="visible"
@@ -621,8 +620,8 @@ export default function LandingPage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Frequently Asked Questions</h2>
               <p className="text-[#9A9A9A] text-sm sm:text-base">Everything you need to know about SAGE and local document retrieval.</p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               variants={containerVariants}
               className="border-t border-white/[0.08]"
             >
@@ -636,8 +635,8 @@ export default function LandingPage() {
           <div className="absolute -right-[6px] -bottom-[9px] text-[12px] text-white/20 select-none font-mono font-medium z-30">+</div>
         </motion.section>
 
-        {/* Final CTA Section */}
-        <motion.section 
+        {/* Final CTA Section — bold sunset glow matching unizenlabs.com reference */}
+        <motion.section
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-120px" }}
@@ -645,24 +644,32 @@ export default function LandingPage() {
           className="px-6 sm:px-10 md:px-16 py-20 md:py-28 text-center relative z-20 border-b border-white/[0.06]"
         >
           <div className="max-w-4xl mx-auto">
-            <motion.div 
+            <motion.div
               variants={itemVariants}
-              className="glass rounded-3xl p-12 md:p-16 border border-[#FF6B2C]/25 relative overflow-hidden"
-              style={{ 
-                background: 'radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.10) 0%, transparent 68%), rgba(10, 10, 12, 0.55)' 
+              className="rounded-3xl pt-20 pb-16 px-10 md:pt-28 md:pb-20 md:px-16 relative overflow-hidden"
+              style={{
+                background: 'radial-gradient(ellipse 100% 90% at 50% 100%, #FF8A3D 0%, #FF6B2C 18%, #E63946 34%, rgba(150, 45, 22, 0.85) 52%, rgba(24, 11, 8, 0.98) 74%, #0A0A0A 92%)'
               }}
             >
-              <Sparkles className="w-8 h-8 text-[#FF6B2C] mx-auto mb-5 animate-pulse" />
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+              {/* Subtle grain texture on top of the glow so it doesn't look flat */}
+              <div
+                className="absolute inset-0 opacity-[0.06] mix-blend-overlay pointer-events-none"
+                style={{
+                  backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
+                }}
+              />
+
+              <Sparkles className="w-8 h-8 text-white mx-auto mb-5 relative z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] animate-pulse" />
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight relative z-10 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]">
                 Build the Future with SAGE
               </h2>
-              <p className="text-[#9A9A9A] text-sm sm:text-base mb-10 max-w-md mx-auto">
+              <p className="text-white/85 text-sm sm:text-base mb-10 max-w-md mx-auto relative z-10 drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]">
                 Ready to experience semantic intelligence? Upload your first PDF and query it naturally.
               </p>
-              
-              <div className="flex justify-center">
-                <Link 
-                  to="/register" 
+
+              <div className="flex justify-center relative z-10">
+                <Link
+                  to="/register"
                   className="btn-primary text-xs py-3.5 px-8 gap-2 shadow-brand-lg cursor-pointer"
                 >
                   <span>Get Started Free</span>
@@ -691,10 +698,10 @@ export default function LandingPage() {
               <a href="#capabilities" className="hover:text-[#F5F5F0] transition-colors duration-200">Capabilities</a>
               <a href="#why" className="hover:text-[#F5F5F0] transition-colors duration-200">Why SAGE?</a>
               <a href="#faq" className="hover:text-[#F5F5F0] transition-colors duration-200">FAQ</a>
-              <a 
-                href="https://github.com/joshisanidhya/ai-pdf-chatbot" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://github.com/joshisanidhya/ai-pdf-chatbot"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[#F5F5F0] transition-colors duration-200"
               >
                 GitHub
