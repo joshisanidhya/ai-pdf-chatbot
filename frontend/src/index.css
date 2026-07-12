@@ -388,3 +388,102 @@
 .markdown-content hr {
   @apply border-white/10 my-4;
 }
+
+/* ── Landing Page: Blob / Aurora Animations ───────────────── */
+@keyframes blobDrift1 {
+  0%   { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  25%  { transform: translate(40px, -50px) scale(1.05) rotate(2deg); }
+  50%  { transform: translate(-30px, 30px) scale(0.97) rotate(-3deg); }
+  75%  { transform: translate(20px, -20px) scale(1.03) rotate(1deg); }
+  100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+}
+
+@keyframes blobDrift2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(-45px, 35px) scale(1.06); }
+  66%  { transform: translate(30px, -40px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes blobDrift3 {
+  0%   { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  40%  { transform: translate(35px, 25px) scale(1.04) rotate(4deg); }
+  80%  { transform: translate(-20px, -30px) scale(0.98) rotate(-2deg); }
+  100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+}
+
+.blob-1 {
+  animation: blobDrift1 18s ease-in-out infinite;
+  will-change: transform;
+}
+.blob-2 {
+  animation: blobDrift2 22s ease-in-out infinite;
+  animation-delay: -6s;
+  will-change: transform;
+}
+.blob-3 {
+  animation: blobDrift3 16s ease-in-out infinite;
+  animation-delay: -11s;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob-1, .blob-2, .blob-3 { animation: none !important; }
+  .animate-marquee { animation: none !important; }
+}
+
+/* ── Landing Page: Marquee ─────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+/* ── Landing Page: FAQ Accordion ──────────────────────────── */
+.faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms ease;
+}
+.faq-body.open {
+  grid-template-rows: 1fr;
+}
+.faq-inner {
+  overflow: hidden;
+}
+
+/* ── Landing Page: Scroll Reveal ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Landing Page: Capability Card progress bars ─────────── */
+@keyframes barGrow {
+  from { width: 0%; }
+}
+.bar-animate {
+  animation: barGrow 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* ── Landing Page: Noise grain overlay ────────────────────── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
+
