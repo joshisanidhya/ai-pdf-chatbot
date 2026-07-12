@@ -73,7 +73,7 @@ export default function RegisterPage() {
       >
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2.5 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center shadow-brand">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center shadow-brand">
               <Brain className="w-6 h-6 text-white" />
             </div>
             <span className="font-bold text-2xl text-white">

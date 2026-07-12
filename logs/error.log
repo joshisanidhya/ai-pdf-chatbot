@@ -77,3 +77,638 @@ Instead change the require of transformers.js in /home/sanidhya-joshi/ai-pdf-cha
     at async pipeline (file:///home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/@xenova/transformers/src/pipelines.js:3219:21)
 19:01:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
 19:01:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:26:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:26:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:53 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:27:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:44 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:28:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:09 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:29:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:01 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:30:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:44 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:31:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:01 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:32:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:01 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:33:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:16 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:34:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:09 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:35:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:36:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:37:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:16 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:53 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:38:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:53 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:39:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:11 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:40:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:41:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:09 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:42:55 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:43:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:44:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:45:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:46:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:11 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:16 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:47:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:48:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:53 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:49:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:50:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:33 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:51:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:44 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:52:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:53:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:54:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:55:53 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:11 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:56:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:44 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:57:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:58:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+19:59:55 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:00:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:01:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:02:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:03:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:04:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:05:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:09 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:06:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:35 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:07:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:16 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:30 [[31merror[39m]: Error: Not allowed by CORS
+    at origin (/home/sanidhya-joshi/ai-pdf-chatbot/backend/server.js:49:16)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at internalNext (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/helmet/index.cjs:531:6)
+20:08:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:08:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:09 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:15 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:09:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:10:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:11:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:04 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:16 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:23 [[31merror[39m]: Error: Not allowed by CORS
+    at origin (/home/sanidhya-joshi/ai-pdf-chatbot/backend/server.js:49:16)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at internalNext (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/helmet/index.cjs:531:6)
+20:12:28 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:12:59 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:23 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:25 [[31merror[39m]: Error: Not allowed by CORS
+    at origin (/home/sanidhya-joshi/ai-pdf-chatbot/backend/server.js:49:16)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/express/lib/router/index.js:280:10)
+    at internalNext (/home/sanidhya-joshi/ai-pdf-chatbot/backend/node_modules/helmet/index.cjs:531:6)
+20:13:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:13:55 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:01 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:25 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:44 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:14:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:20 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:38 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:44 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:15:55 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:48 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:16:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:01 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:30 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:17:54 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:18 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:43 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:49 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:18:55 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:06 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:11 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:17 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:22 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:27 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:32 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:37 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:42 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:47 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:19:58 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:03 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:09 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:14 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:40 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:50 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:20:55 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:00 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:05 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:10 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:16 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:21 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:26 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:31 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:36 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:41 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:46 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:52 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:21:57 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:07 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:12 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:19 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:24 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:29 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:34 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:39 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:45 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:51 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:22:56 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:23:02 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:23:08 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+20:23:13 [[31merror[39m]: [31m❌ MongoDB connection failed:[39m
+21:47:04 [[31merror[39m]: [31mPDF extraction failed:[39m
+21:47:04 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+21:47:04 [[31merror[39m]: Error: Failed to extract text from PDF: Invalid PDF structure
+    at extractTextFromPDF (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:49:11)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:199:50)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+21:56:21 [[31merror[39m]: [31mPDF extraction failed:[39m
+21:56:21 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+21:56:21 [[31merror[39m]: Error: Failed to extract text from PDF: bad XRef entry
+    at extractTextFromPDF (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:49:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:199:50)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+22:16:45 [[31merror[39m]: [31mPDF extraction failed:[39m
+22:16:45 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+22:16:45 [[31merror[39m]: Error: Failed to extract text from PDF: bad XRef entry
+    at extractTextFromPDF (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:49:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:199:50)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+22:29:16 [[31merror[39m]: [31mPDF extraction failed:[39m
+22:29:16 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+22:29:16 [[31merror[39m]: Error: Failed to extract text from PDF: bad XRef entry
+    at extractTextFromPDF (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:49:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:199:50)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)
+22:32:02 [[31merror[39m]: [31mPDF extraction failed:[39m
+22:32:02 [[31merror[39m]: [31mDocument upload/processing failed:[39m
+22:32:02 [[31merror[39m]: Error: Failed to extract text from PDF: bad XRef entry
+    at extractTextFromPDF (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:49:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/rag/ragPipeline.js:199:50)
+    at async uploadDocument (/home/sanidhya-joshi/ai-pdf-chatbot/backend/controllers/documentController.js:52:20)

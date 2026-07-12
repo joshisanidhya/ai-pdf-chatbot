@@ -4,7 +4,7 @@
  * Fallback to HuggingFace Inference API if configured.
  */
 
-const { HuggingFaceInferenceEmbeddings } = require('@langchain/community/embeddings/hf');
+// Removed unused LangChain HuggingFace embedding layer
 const logger = require('../utils/logger');
 
 class LocalTransformersEmbeddings {
@@ -13,13 +13,17 @@ class LocalTransformersEmbeddings {
     // Initialize pipeline asynchronously using dynamic import
     this.pipelinePromise = (async () => {
       const { pipeline } = await import('@xenova/transformers');
-      return pipeline('feature-extraction', this.modelName);
-    })();
+      return await pipeline('feature-extraction', this.modelName);
+    })().catch(err => {
+      logger.error('Failed to initialize Xenova pipeline:', err.message);
+      return err; // Return error instead of throwing to avoid UnhandledPromiseRejection
+    });
   }
 
   async embedQuery(text) {
     try {
       const extractor = await this.pipelinePromise;
+      if (extractor instanceof Error) throw new Error(`Embedding initialization failed: ${extractor.message}`);
       const output = await extractor(text, { pooling: 'mean', normalize: true });
       return Array.from(output.data);
     } catch (error) {
@@ -31,6 +35,7 @@ class LocalTransformersEmbeddings {
   async embedDocuments(documents) {
     try {
       const extractor = await this.pipelinePromise;
+      if (extractor instanceof Error) throw new Error(`Embedding initialization failed: ${extractor.message}`);
       const embeddings = [];
       logger.info(`Generating embeddings for ${documents.length} chunks locally...`);
       for (const doc of documents) {

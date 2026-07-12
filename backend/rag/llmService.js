@@ -41,30 +41,37 @@ async function generateWithOpenRouter(messages) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) throw new Error('OPENROUTER_API_KEY is not configured');
 
-  const model = process.env.OPENROUTER_MODEL || 'mistralai/mistral-7b-instruct';
+  const model = process.env.OPENROUTER_MODEL || 'meta-llama/llama-3-8b-instruct:free';
   const baseURL = process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1';
 
-  const response = await axios.post(
-    `${baseURL}/chat/completions`,
-    {
-      model,
-      messages,
-      temperature: 0.3,         // Low temp for factual, grounded answers
-      max_tokens: 1500,
-      top_p: 0.9,
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://sage-ai.vercel.app',
-        'X-Title': 'SAGE',
+  try {
+    const response = await axios.post(
+      `${baseURL}/chat/completions`,
+      {
+        model,
+        messages,
+        temperature: 0.3,         // Low temp for factual, grounded answers
+        max_tokens: 1500,
+        top_p: 0.9,
       },
-      timeout: 60000, // 60s timeout
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://sage-ai.vercel.app',
+          'X-Title': 'SAGE',
+        },
+        timeout: 60000, // 60s timeout
+      }
+    );
+    return response.data.choices[0].message.content;
+  } catch (error) {
+    if (error.response) {
+      logger.error('OpenRouter API Error:', error.response.data);
+      throw new Error(`OpenRouter API failed: ${error.response.data.error?.message || error.message}`);
     }
-  );
-
-  return response.data.choices[0].message.content;
+    throw error;
+  }
 }
 
 /**

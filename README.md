@@ -72,15 +72,7 @@ PDF Upload  →  Semantic Chunking  →  Local Vector Embeddings  →  Similarit
 
 ## Interface
 
-<div align="center">
-
-| Landing Page | Application Dashboard |
-| :---: | :---: |
-| <img src="docs/placeholder-landing.png" width="400" alt="Landing Page Placeholder" /> | <img src="docs/placeholder-dashboard.png" width="400" alt="Dashboard Placeholder" /> |
-
-| PDF Upload Interface | Real-time AI Chat |
-| :---: | :---: |
-| <img src="docs/placeholder-upload.png" width="400" alt="Upload Placeholder" /> | <img src="docs/placeholder-chat.png" width="400" alt="Chat Placeholder" /> |
+SAGE features a custom-built, premium cinematic user interface heavily inspired by modern design principles (glassmorphism, soft ambient glows, organic noise filters). The dashboard offers real-time status monitoring for vector generation and document context extraction.
 
 </div>
 

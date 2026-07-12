@@ -191,7 +191,7 @@ export default function UploadZone({ onClose }) {
 
                 <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-brand-600 to-purple-500 rounded-full"
+                    className="h-full bg-gradient-to-r from-[#FF6B2C] to-[#E63946] rounded-full"
                     initial={{ width: '0%' }}
                     animate={{ width: `${uploadProgress}%` }}
                     transition={{ duration: 0.3 }}

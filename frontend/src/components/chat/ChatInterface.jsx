@@ -22,7 +22,7 @@ import toast from 'react-hot-toast';
 function TypingIndicator() {
   return (
     <div className="flex items-start gap-3 message-enter">
-      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center flex-shrink-0 shadow-lg">
         <Brain className="w-4 h-4 text-white" />
       </div>
       <div className="glass px-4 py-3.5 rounded-2xl rounded-bl-sm">
@@ -104,8 +104,8 @@ function MessageBubble({ message, onFeedback }) {
       {/* Avatar */}
       <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ${
         isUser
-          ? 'bg-gradient-to-br from-brand-500 to-purple-600'
-          : 'bg-gradient-to-br from-emerald-500 to-teal-600'
+          ? 'bg-white/10 border border-white/5'
+          : 'bg-gradient-to-br from-[#FF6B2C] to-[#E63946]'
       }`}>
         {isUser ? (
           <User className="w-4 h-4 text-white" />
@@ -351,7 +351,7 @@ export default function ChatInterface({ document, conversationId, onConversation
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center justify-center h-full py-16 text-center"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center mb-4 shadow-brand animate-float">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center mb-4 shadow-brand animate-float">
               <Sparkles className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">

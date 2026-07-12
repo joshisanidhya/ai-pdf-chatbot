@@ -98,7 +98,7 @@ export default function Sidebar({ onUploadClick }) {
               exit={{ opacity: 0 }}
               className="flex items-center gap-2.5"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center">
                 <Brain className="w-4 h-4 text-white" />
               </div>
               <span className="font-bold text-white text-base">
@@ -240,7 +240,7 @@ export default function Sidebar({ onUploadClick }) {
       <div className="p-3 border-t border-white/5">
         {!isCollapsed ? (
           <div className="flex items-center gap-3 px-2 py-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
               {user?.name?.charAt(0).toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
@@ -257,7 +257,7 @@ export default function Sidebar({ onUploadClick }) {
           </div>
         ) : (
           <div className="flex flex-col items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-xs font-bold text-white">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center text-xs font-bold text-white">
               {user?.name?.charAt(0).toUpperCase()}
             </div>
             <button onClick={logout} className="btn-icon p-1.5">

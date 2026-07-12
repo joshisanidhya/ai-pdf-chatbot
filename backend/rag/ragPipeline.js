@@ -125,9 +125,9 @@ async function retrieveRelevantChunks(query, vectorStoreId, topK = 4) {
   const results = await vectorStore.similaritySearchWithScore(query, topK);
 
   // Filter by minimum similarity threshold
-  // Lowered threshold to 0.15 since all-MiniLM-L6-v2 cosine similarity can be conservative
+  // Lowered threshold to 0.05 since all-MiniLM-L6-v2 cosine similarity can be conservative
   const filtered = results
-    .filter(([, score]) => score > 0.15)
+    .filter(([, score]) => score > 0.05)
     .map(([doc, score]) => ({
       content: doc.pageContent,
       metadata: doc.metadata,

@@ -54,13 +54,11 @@ const conversationSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
-      index: true,
     },
     document: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Document',
       required: true,
-      index: true,
     },
     title: {
       type: String,
