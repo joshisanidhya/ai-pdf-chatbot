@@ -239,6 +239,30 @@ export default function LandingPage() {
             <motion.div variants={itemVariants} className="flex items-center justify-center relative py-6">
               <div className="absolute w-64 h-64 bg-[#FF6B2C] rounded-full blur-[100px] opacity-[0.14] pointer-events-none" />
               
+              {/* Keyframes for the glowing moving white orb/highlight */}
+              <style>{`
+                @keyframes orb-slide-keyframes {
+                  0% { transform: translateX(-100%); }
+                  100% { transform: translateX(0%); }
+                }
+                @keyframes orb-slide-slow-keyframes {
+                  0% { transform: translateX(-100%); }
+                  100% { transform: translateX(0%); }
+                }
+                .animate-orb-slide {
+                  animation: orb-slide-keyframes 3.5s ease-in-out infinite alternate;
+                }
+                .animate-orb-slide-slow {
+                  animation: orb-slide-slow-keyframes 5.5s ease-in-out infinite alternate;
+                }
+                @media (prefers-reduced-motion: reduce) {
+                  .animate-orb-slide, .animate-orb-slide-slow {
+                    animation: none !important;
+                    transform: translateX(0%) !important;
+                  }
+                }
+              `}</style>
+
               <MouseParallax factor={12} className="w-full max-w-sm">
                 <div className="glass rounded-3xl p-7 border border-white/[0.08] shadow-dark-lg relative overflow-hidden group hover:border-[#FF6B2C]/20 transition-all duration-300">
                   <div className="flex items-center justify-between mb-6">
@@ -251,21 +275,59 @@ export default function LandingPage() {
                   
                   <div className="bg-black/30 border border-white/5 rounded-2xl p-5 space-y-4 mb-3">
                     {[['Keyword Search', 28], ['Semantic RAG', 98]].map(([label, score]) => (
-                      <div key={label}>
+                      <div key={label} className="relative">
                         <div className="flex justify-between text-xs text-[#9A9A9A] mb-1.5 font-medium">
                           <span>{label}</span>
                           <span className={score > 50 ? 'text-[#FF824D]' : ''}>{score}%</span>
                         </div>
-                        <div className="h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-                          <motion.div 
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${score}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.2, ease: 'easeOut' }}
-                            className={`h-full rounded-full ${
-                              score > 50 ? 'bg-gradient-to-r from-[#FF6B2C] to-[#E63946]' : 'bg-white/20'
-                            }`}
-                          />
+                        <div className="relative h-1.5 flex items-center">
+                          {/* Track background */}
+                          <div className="absolute inset-x-0 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${score}%` }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 1.2, ease: 'easeOut' }}
+                              className={`h-full rounded-full ${
+                                score > 50 ? 'bg-gradient-to-r from-[#FF6B2C] to-[#E63946]' : 'bg-white/20'
+                              }`}
+                            />
+                          </div>
+
+                          {/* Glowing Animated Orb (Semantic RAG) */}
+                          {score > 50 && (
+                            <div 
+                              className="absolute left-0 top-0 bottom-0 pointer-events-none z-10 overflow-visible"
+                              style={{ width: `${score}%` }}
+                            >
+                              <div className="w-full h-full relative animate-orb-slide overflow-visible">
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex items-center justify-center w-0 h-0">
+                                  {/* Motion trail */}
+                                  <div className="absolute right-[4px] h-[2px] w-[24px] bg-gradient-to-r from-transparent to-[#FF6B2C]/40 blur-[1px]" />
+                                  {/* Outer glow */}
+                                  <div className="absolute w-[44px] h-[44px] rounded-full blur-[8px] bg-[#FF6B2C]/50 mix-blend-screen" />
+                                  {/* Middle glow */}
+                                  <div className="absolute w-[20px] h-[20px] rounded-full blur-[3px] bg-white/25" />
+                                  {/* Inner solid white core */}
+                                  <div className="w-[10px] h-[10px] rounded-full bg-white shadow-[0_0_6px_#ffffff]" />
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Dimmer racing dot (Keyword Search) */}
+                          {score <= 50 && (
+                            <div 
+                              className="absolute left-0 top-0 bottom-0 pointer-events-none z-10 overflow-visible"
+                              style={{ width: `${score}%` }}
+                            >
+                              <div className="w-full h-full relative animate-orb-slide-slow overflow-visible">
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex items-center justify-center w-0 h-0 opacity-25">
+                                  <div className="w-[6px] h-[6px] rounded-full bg-white shadow-[0_0_4px_#ffffff]" />
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -304,7 +366,7 @@ export default function LandingPage() {
           <div className="absolute -right-[6px] -bottom-[9px] text-[12px] text-white/20 select-none font-mono font-medium z-30">+</div>
         </motion.section>
 
-        {/* ── Capabilities Section (Redesigned as Cross-Layout) ───────────────────── */}
+        {/* ── Capabilities Section (Redesigned as Hub-and-Spoke Grid) ───────────────────── */}
         <motion.section 
           id="capabilities"
           initial="hidden"
@@ -322,106 +384,124 @@ export default function LandingPage() {
               A production-ready Semantic AI Retrieval engine designed for local, grounded document search.
             </p>
           </motion.div>
-
-          {/* Desktop Version: High-Fidelity Cross Layout (lg:block hidden) */}
+ 
+          {/* Desktop Version: High-Fidelity Hub-and-Spoke Grid (lg:block hidden) */}
           <div className="relative w-full h-[650px] max-w-5xl mx-auto hidden lg:block select-none">
-            {/* Connector Lines */}
-            <div className="absolute left-[15%] right-[15%] top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-[#FF6B2C]/20 to-transparent z-0" />
-            <div className="absolute top-[10%] bottom-[10%] left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-[#FF6B2C]/20 to-transparent z-0" />
-
-            {/* Concentric Flame Rings in the Center */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center">
-              <div className="absolute w-44 h-44 rounded-full bg-[#FF6B2C] blur-[60px] opacity-[0.12] pointer-events-none" />
-              
-              {/* Outer Ring */}
-              <motion.div 
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="w-56 h-56 rounded-full border border-white/[0.02] flex items-center justify-center absolute"
-              />
-              
-              {/* Middle Ring */}
-              <motion.div 
-                animate={{ scale: [1, 0.96, 1] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 h-44 rounded-full border border-white/[0.04] flex items-center justify-center absolute"
-              />
-              
-              {/* Inner Ring */}
-              <div className="w-32 h-32 rounded-full border border-[#FF6B2C]/10 flex items-center justify-center absolute bg-gradient-to-br from-transparent to-[#FF6B2C]/5" />
-              
-              {/* Center Burning Node */}
-              <motion.div 
-                animate={{ boxShadow: ["0 0 15px rgba(255,107,44,0.1)", "0 0 25px rgba(255,107,44,0.25)", "0 0 15px rgba(255,107,44,0.1)"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="w-16 h-16 rounded-2xl bg-black border border-[#FF6B2C]/30 flex items-center justify-center z-20"
-              >
-                <div className="w-4 h-5 bg-gradient-to-t from-[#E63946] to-[#FF6B2C] rounded-full filter blur-[2px] animate-pulse" />
-                <Sparkles className="w-5 h-5 text-white absolute animate-pulse" />
-              </motion.div>
+            {/* Style Block for Pulsing Beams */}
+            <style>{`
+              @keyframes beam-pulse {
+                0%, 100% { opacity: 0.35; stroke-width: 1.5px; }
+                50% { opacity: 0.8; stroke-width: 2.5px; }
+              }
+              .animate-beam-pulse-1 { animation: beam-pulse 3.5s ease-in-out infinite; }
+              .animate-beam-pulse-2 { animation: beam-pulse 4.2s ease-in-out infinite; animation-delay: 0.6s; }
+              .animate-beam-pulse-3 { animation: beam-pulse 3.8s ease-in-out infinite; animation-delay: 1.2s; }
+              .animate-beam-pulse-4 { animation: beam-pulse 4.5s ease-in-out infinite; animation-delay: 1.8s; }
+            `}</style>
+ 
+            {/* Faint crosshair decorative lines */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.06] -translate-x-1/2" />
+              <div className="absolute left-0 right-0 top-1/2 h-px bg-white/[0.06] -translate-y-1/2" />
             </div>
-
-            {/* Top Card (North) */}
-            <motion.div 
-              variants={itemVariants}
-              className="absolute left-1/2 top-0 -translate-x-1/2 w-72 text-center"
-            >
-              <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-[#0A0A0C] flex items-center justify-center mx-auto mb-4 relative shadow-inner shadow-white/5 group hover:border-[#FF6B2C]/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-[#FF6B2C]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Upload className="w-5 h-5 text-[#FF6B2C]" />
+ 
+            {/* SVG Radiating Light Beams */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="beam-top-left" x1="1" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stopColor="#FF6B2C" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#FF6B2C" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="beam-top-center" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stopColor="#FF6B2C" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#FF6B2C" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="beam-top-right" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#FF6B2C" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#FF6B2C" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="beam-bottom" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#FF6B2C" stopOpacity="0.65" />
+                  <stop offset="100%" stopColor="#FF6B2C" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              
+              {/* Coordinates connecting Hub Center (50%, 50%) to respective spokes */}
+              <line x1="50%" y1="50%" x2="16.66%" y2="12%" stroke="url(#beam-top-left)" strokeWidth="2" className="animate-beam-pulse-1" />
+              <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="url(#beam-top-center)" strokeWidth="2" className="animate-beam-pulse-2" />
+              <line x1="50%" y1="50%" x2="83.33%" y2="12%" stroke="url(#beam-top-right)" strokeWidth="2" className="animate-beam-pulse-3" />
+              <line x1="50%" y1="50%" x2="50%" y2="88%" stroke="url(#beam-bottom)" strokeWidth="2" className="animate-beam-pulse-4" />
+            </svg>
+ 
+            <div className="relative z-10 w-full h-full flex flex-col justify-between items-center py-6">
+              {/* Row 1: Top 3 Items */}
+              <div className="grid grid-cols-3 w-full gap-8">
+                {/* Top Left */}
+                <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
+                  <div className="w-[56px] h-[56px] rounded-[12px] border border-[#FF6B2C]/40 bg-[#0A0A0A] flex items-center justify-center mb-4">
+                    <Upload className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="text-[#9A9A9A] text-[13px] leading-relaxed max-w-[260px] mx-auto">
+                    <span className="text-[#F5F5F0] font-semibold block mb-1">Instant PDF Ingestion</span>
+                    Extract text structures, tables, and sections from long PDF manuals instantly.
+                  </p>
+                </motion.div>
+ 
+                {/* Top Center */}
+                <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
+                  <div className="w-[56px] h-[56px] rounded-[12px] border border-[#FF6B2C]/40 bg-[#0A0A0A] flex items-center justify-center mb-4">
+                    <Brain className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="text-[#9A9A9A] text-[13px] leading-relaxed max-w-[260px] mx-auto">
+                    <span className="text-[#F5F5F0] font-semibold block mb-1">Local Semantic Indexing</span>
+                    Generate high-fidelity vector nodes locally using sentence-transformers.
+                  </p>
+                </motion.div>
+ 
+                {/* Top Right */}
+                <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
+                  <div className="w-[56px] h-[56px] rounded-[12px] border border-[#FF6B2C]/40 bg-[#0A0A0A] flex items-center justify-center mb-4">
+                    <Shield className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="text-[#9A9A9A] text-[13px] leading-relaxed max-w-[260px] mx-auto">
+                    <span className="text-[#F5F5F0] font-semibold block mb-1">Isolated Data Sandbox</span>
+                    Complete containment. User scopes are strictly guarded with JWT parameters.
+                  </p>
+                </motion.div>
               </div>
-              <h3 className="font-bold text-[#F5F5F0] text-sm mb-2">Instant PDF Ingestion</h3>
-              <p className="text-[#9A9A9A] text-xs leading-relaxed max-w-[240px] mx-auto">
-                Extract text structures, tables, and sections from long PDF manuals instantly.
-              </p>
-            </motion.div>
-
-            {/* Left Card (West) */}
-            <motion.div 
-              variants={itemVariants}
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-72 text-center"
-            >
-              <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-[#0A0A0C] flex items-center justify-center mx-auto mb-4 relative shadow-inner shadow-white/5 group hover:border-[#FF6B2C]/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-[#FF6B2C]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Brain className="w-5 h-5 text-[#FF6B2C]" />
+ 
+              {/* Row 2: Center Hub */}
+              <div className="relative w-full h-[180px] flex items-center justify-center">
+                <div className="relative w-[180px] h-[180px] flex items-center justify-center">
+                  {/* Outer glow ring */}
+                  <div 
+                    className="absolute w-[180px] h-[180px] rounded-full blur-[25px] opacity-[0.16] pointer-events-none"
+                    style={{ background: 'radial-gradient(circle, #FF6B2C 0%, transparent 70%)' }}
+                  />
+                  {/* Middle ring */}
+                  <div className="absolute w-[110px] h-[110px] rounded-full border border-[#FF6B2C]/30 bg-black/50 backdrop-blur-md" />
+                  {/* Inner badge */}
+                  <div className="absolute w-[50px] h-[50px] rounded-xl bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center shadow-lg shadow-[#FF6B2C]/20">
+                    <Sparkles className="w-5 h-5 text-white animate-pulse" />
+                  </div>
+                </div>
               </div>
-              <h3 className="font-bold text-[#F5F5F0] text-sm mb-2">Local Semantic Indexing</h3>
-              <p className="text-[#9A9A9A] text-xs leading-relaxed max-w-[240px] mx-auto">
-                Generate high-fidelity vector nodes locally using sentence-transformers.
-              </p>
-            </motion.div>
-
-            {/* Right Card (East) */}
-            <motion.div 
-              variants={itemVariants}
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-72 text-center"
-            >
-              <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-[#0A0A0C] flex items-center justify-center mx-auto mb-4 relative shadow-inner shadow-white/5 group hover:border-[#FF6B2C]/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-[#FF6B2C]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Shield className="w-5 h-5 text-[#FF6B2C]" />
+ 
+              {/* Row 3: Bottom 1 Item */}
+              <div className="w-full flex justify-center">
+                <motion.div variants={itemVariants} className="flex flex-col items-center text-center px-4">
+                  <div className="w-[56px] h-[56px] rounded-[12px] border border-[#FF6B2C]/40 bg-[#0A0A0A] flex items-center justify-center mb-4">
+                    <Search className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="text-[#9A9A9A] text-[13px] leading-relaxed max-w-[260px] mx-auto">
+                    <span className="text-[#F5F5F0] font-semibold block mb-1">Cited Footnotes &amp; Context</span>
+                    Verify answers instantly with source text highlights and page numbers.
+                  </p>
+                </motion.div>
               </div>
-              <h3 className="font-bold text-[#F5F5F0] text-sm mb-2">Isolated Data Sandbox</h3>
-              <p className="text-[#9A9A9A] text-xs leading-relaxed max-w-[240px] mx-auto">
-                Complete containment. User scopes are strictly guarded with JWT parameters.
-              </p>
-            </motion.div>
-
-            {/* Bottom Card (South) */}
-            <motion.div 
-              variants={itemVariants}
-              className="absolute left-1/2 bottom-0 -translate-x-1/2 w-72 text-center"
-            >
-              <div className="w-12 h-12 rounded-xl border border-white/[0.08] bg-[#0A0A0C] flex items-center justify-center mx-auto mb-4 relative shadow-inner shadow-white/5 group hover:border-[#FF6B2C]/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-[#FF6B2C]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Search className="w-5 h-5 text-[#FF6B2C]" />
-              </div>
-              <h3 className="font-bold text-[#F5F5F0] text-sm mb-2">Cited Footnotes &amp; Context</h3>
-              <p className="text-[#9A9A9A] text-xs leading-relaxed max-w-[240px] mx-auto">
-                Verify answers instantly with source text highlights and page numbers.
-              </p>
-            </motion.div>
+            </div>
           </div>
-
+ 
           {/* Mobile/Tablet Version: Responsive Grid (lg:hidden block) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden max-w-2xl mx-auto">
             {[
