@@ -5,7 +5,15 @@
 
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+let rawApiUrl = import.meta.env.VITE_API_URL || '/api';
+
+// Normalize API_BASE_URL to always map to the correct backend subpath
+if (rawApiUrl !== '/api' && rawApiUrl !== 'api') {
+  const cleanUrl = rawApiUrl.replace(/\/+$/, '');
+  rawApiUrl = cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+}
+
+const API_BASE_URL = rawApiUrl;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -40,10 +48,25 @@ api.interceptors.response.use(
       }
     }
 
-    const message =
-      error.response?.data?.message ||
-      error.message ||
-      'An unexpected error occurred';
+    let message = 'An unexpected error occurred';
+
+    if (!error.response) {
+      // No response from server (network error / backend offline)
+      message = 'Network error: Backend is temporarily unavailable or offline.';
+    } else if (error.response.status === 404) {
+      message = 'Requested service is unavailable (Endpoint not found).';
+    } else if (error.response.status === 502 || error.response.status === 503 || error.response.status === 504) {
+      message = 'Server temporarily unavailable. Please try again later.';
+    } else if (error.response.data && typeof error.response.data === 'object') {
+      message = error.response.data.message || error.response.data.error || 'Server error';
+    } else if (error.message) {
+      message = error.message;
+    }
+
+    // Sanitize technical router errors to keep the interface premium
+    if (typeof message === 'string' && (message.includes('Route not found') || message.includes('Cannot POST') || message.includes('Cannot GET'))) {
+      message = 'Requested authentication service is temporarily unavailable.';
+    }
 
     return Promise.reject(new Error(message));
   }

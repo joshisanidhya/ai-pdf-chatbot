@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Brain, Mail, Lock, Eye, EyeOff, LogIn } from 'lucide-react';
+import { Brain, Mail, Lock, Eye, EyeOff, LogIn, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -40,7 +40,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen hero-bg flex items-center justify-center p-4">
+    <div className="min-h-screen hero-bg flex items-center justify-center p-4 relative">
+      {/* Back button */}
+      <div className="absolute top-6 left-6 z-30">
+        <Link
+          to="/"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-md text-xs font-medium text-[#9A9A9A] hover:text-[#F5F5F0] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 shadow-sm"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Back</span>
+        </Link>
+      </div>
+
       {/* Background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="bg-orb-brand w-[500px] h-[500px] -top-48 -right-24 opacity-10" />
@@ -73,8 +84,8 @@ export default function LoginPage() {
             {/* Email */}
             <div>
               <label htmlFor="email" className="input-label">Email address</label>
-              <div className="relative">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <div className="relative group">
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-[#FF6B2C] transition-colors" />
                 <input
                   id="email"
                   name="email"
@@ -92,8 +103,8 @@ export default function LoginPage() {
             {/* Password */}
             <div>
               <label htmlFor="password" className="input-label">Password</label>
-              <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <div className="relative group">
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-[#FF6B2C] transition-colors" />
                 <input
                   id="password"
                   name="password"
@@ -120,17 +131,17 @@ export default function LoginPage() {
               id="login-submit"
               type="submit"
               disabled={isLoading}
-              className="btn-primary w-full py-3 text-base mt-2"
+              className="btn-primary w-full py-3 text-base mt-2 flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Signing in...
+                  <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                  <span>Signing in...</span>
                 </>
               ) : (
                 <>
                   <LogIn className="w-4 h-4" />
-                  Sign In
+                  <span>Sign In</span>
                 </>
               )}
             </button>

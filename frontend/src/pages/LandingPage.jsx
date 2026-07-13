@@ -198,7 +198,7 @@ export default function LandingPage() {
         <section className="border-b border-white/[0.06] bg-[#0A0A0C]/20 py-8 relative overflow-hidden z-20">
           <div className="px-6 sm:px-10 md:px-16">
             <p className="text-center text-[10px] font-semibold text-[#9A9A9A] uppercase tracking-[0.25em] mb-6">
-              Trusted by top innovative teams &amp; built with
+              Semantic RAG engine built with
             </p>
 
             <div className="relative w-full overflow-hidden py-2">

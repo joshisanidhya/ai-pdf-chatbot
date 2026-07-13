@@ -149,25 +149,16 @@ export default function Hero() {
         </MouseParallax>
       </div>
 
-      {/* Social Proof Row - Anchored exactly at the bottom of the viewport */}
+      {/* Social Tagline Row - Anchored exactly at the bottom of the viewport */}
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.7 }}
-        className="flex items-center gap-3 z-30"
+        className="flex items-center gap-2 z-30"
       >
-        <div className="flex -space-x-2">
-          {['U', 'N', 'I', 'Z'].map((char, index) => (
-            <div 
-              key={index} 
-              className="w-7 h-7 rounded-full border-2 border-[#0A0A0A] bg-gradient-to-br from-[#FF6B2C] to-[#E63946] flex items-center justify-center text-[9px] font-bold text-white shadow-md shadow-black/30"
-            >
-              {char}
-            </div>
-          ))}
-        </div>
+        <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C]" />
         <p className="text-[11px] sm:text-xs text-[#9A9A9A]">
-          Trusted already by <span className="text-[#F5F5F0] font-semibold">1,200+ Researchers &amp; Developers</span>
+          Built for <span className="text-[#F5F5F0] font-semibold">engineers, students, and researchers</span>
         </p>
       </motion.div>
 
