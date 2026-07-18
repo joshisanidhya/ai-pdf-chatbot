@@ -21,6 +21,8 @@ async function generateResponse(messages) {
   logger.info(`🤖 Generating response via: ${provider}`);
 
   switch (provider) {
+    case 'mock':
+      return generateWithMock(messages);
     case 'openrouter':
       return generateWithOpenRouter(messages);
     case 'openai':
@@ -30,6 +32,13 @@ async function generateResponse(messages) {
     default:
       throw new Error(`Unknown LLM provider: ${provider}`);
   }
+}
+
+async function generateWithMock(messages) {
+  const userMsg = messages[messages.length - 1]?.content || '';
+  return `[Mock LLM Response]
+Based on the provided document context, here is the answer for your query "${userMsg}".
+This response was generated locally by the SAGE AI engine in mock mode for validation and telemetry tracing.`;
 }
 
 /**

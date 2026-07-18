@@ -2,6 +2,7 @@
  * SAGE - Main Server Entry Point
  * Production-grade Express server with security, logging, and RAG pipeline
  */
+require('./tracing');
 
 const express = require('express');
 const cors = require('cors');
