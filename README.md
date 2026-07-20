@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-  <a href="https://github.com/your-username/sage">
+  <a href="https://github.com/joshisanidhya/ai-pdf-chatbot">
     <img src="frontend/images/sage_logo.png" alt="SAGE Logo" width="280" />
   </a>
   <br />
@@ -85,8 +85,8 @@ Getting SAGE up and running locally takes just a few minutes.
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/your-username/sage.git
-cd sage
+git clone https://github.com/joshisanidhya/ai-pdf-chatbot.git
+cd ai-pdf-chatbot
 
 # Install backend dependencies
 cd backend && npm install
