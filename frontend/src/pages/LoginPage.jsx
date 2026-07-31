@@ -146,20 +146,6 @@ export default function LoginPage() {
               )}
             </button>
           </form>
-
-          {/* Divider */}
-          <div className="flex items-center gap-3 my-6">
-            <div className="flex-1 h-px bg-white/5" />
-            <span className="text-slate-600 text-xs">OR</span>
-            <div className="flex-1 h-px bg-white/5" />
-          </div>
-
-          {/* Demo credentials note */}
-          <div className="glass-strong rounded-xl p-4 text-center">
-            <p className="text-slate-400 text-xs">
-              Demo: <span className="text-brand-400 font-mono">demo@sage.ai</span> / <span className="text-brand-400 font-mono">demo1234</span>
-            </p>
-          </div>
         </div>
 
         {/* Register link */}
