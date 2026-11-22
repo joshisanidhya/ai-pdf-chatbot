@@ -10,18 +10,20 @@
 
 const { RecursiveCharacterTextSplitter } = require('langchain/text_splitter');
 const { MemoryVectorStore } = require('langchain/vectorstores/memory');
-const { Document: LangchainDocument } = require('langchain/document');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const path = require('path');
 const logger = require('../utils/logger');
 const embeddingService = require('./embeddingService');
 const llmService = require('./llmService');
+const { saveSnapshot, loadSnapshot, deleteSnapshot } = require('./vectorSnapshot');
 
 // In-memory vector store map: { vectorStoreId → MemoryVectorStore }
 // For production: use persistent ChromaDB or FAISS with disk persistence
 const vectorStoreCache = new Map();
 const restorePromises = new Map();
+const deletedStores = new Set();
+const activeProcessing = new Set();
 
 /**
  * ─────────────────────────────────────────────────────────────────
@@ -85,14 +87,25 @@ async function chunkDocument(text, documentMeta = {}) {
  * STEP 3 & 4: Generate Embeddings & Store in Vector DB
  * ─────────────────────────────────────────────────────────────────
  */
-async function createVectorStore(chunks, vectorStoreId) {
+async function createVectorStore(chunks, vectorStoreId, documentMeta = {}) {
   try {
     logger.info(`Creating vector store for ${chunks.length} chunks...`);
 
     const embeddings = embeddingService.getEmbeddings();
 
     // Use MemoryVectorStore for simplicity; swap for FAISS/Chroma in production
-    const vectorStore = await MemoryVectorStore.fromDocuments(chunks, embeddings);
+    const vectors = await embeddings.embedDocuments(chunks.map((chunk) => chunk.pageContent));
+    const vectorStore = new MemoryVectorStore(embeddings);
+    await vectorStore.addVectors(vectors, chunks);
+
+    if (deletedStores.has(vectorStoreId)) throw new Error('Document was deleted during processing');
+    if (process.env.PERSIST_VECTOR_INDEX !== 'false' && documentMeta.userId && documentMeta.documentId) {
+      await saveSnapshot(documentMeta.userId, vectorStoreId, documentMeta.documentId, vectors, chunks);
+    }
+    if (deletedStores.has(vectorStoreId)) {
+      if (documentMeta.userId) await deleteSnapshot(documentMeta.userId, vectorStoreId);
+      throw new Error('Document was deleted during processing');
+    }
 
     // Cache the vector store by ID
     vectorStoreCache.set(vectorStoreId, vectorStore);
@@ -178,6 +191,8 @@ async function generateAnswer(question, retrievedChunks, conversationHistory = [
  * ─────────────────────────────────────────────────────────────────
  */
 async function processDocument(filePath, vectorStoreId, documentMeta = {}) {
+  activeProcessing.add(vectorStoreId);
+  try {
   logger.info(`🔄 Starting RAG pipeline for: ${path.basename(filePath)}`);
 
   // Step 1: Extract text
@@ -194,12 +209,11 @@ async function processDocument(filePath, vectorStoreId, documentMeta = {}) {
   const chunks = await chunkDocument(text, {
     ...documentMeta,
     ...pdfMeta,
-    filePath,
   });
   logger.info(`✂️  Created ${chunks.length} chunks`);
 
   // Steps 3 & 4: Embed and store
-  await createVectorStore(chunks, vectorStoreId);
+  await createVectorStore(chunks, vectorStoreId, documentMeta);
 
   // Text preview (first 500 chars)
   const textPreview = text.slice(0, 500).trim();
@@ -211,6 +225,10 @@ async function processDocument(filePath, vectorStoreId, documentMeta = {}) {
     textPreview,
     pdfMeta,
   };
+  } finally {
+    activeProcessing.delete(vectorStoreId);
+    if (!restorePromises.has(vectorStoreId)) deletedStores.delete(vectorStoreId);
+  }
 }
 
 /**
@@ -247,14 +265,18 @@ async function queryDocument(question, vectorStoreId, conversationHistory = []) 
 /**
  * Remove vector store from cache (when document is deleted)
  */
-function clearVectorStore(vectorStoreId) {
+async function clearVectorStore(vectorStoreId, userId) {
+  if (activeProcessing.has(vectorStoreId) || restorePromises.has(vectorStoreId)) {
+    deletedStores.add(vectorStoreId);
+  }
   vectorStoreCache.delete(vectorStoreId);
+  if (userId) await deleteSnapshot(userId, vectorStoreId);
   logger.info(`🗑️  Cleared vector store: ${vectorStoreId}`);
 }
 
 /**
  * Restore vector store for a document on server restart
- * (Requires re-processing since MemoryVectorStore is not persistent)
+ * Loads a persisted snapshot when present, or rebuilds legacy documents.
  */
 async function restoreVectorStore(filePath, vectorStoreId, documentMeta = {}) {
   if (vectorStoreCache.has(vectorStoreId)) {
@@ -267,9 +289,31 @@ async function restoreVectorStore(filePath, vectorStoreId, documentMeta = {}) {
   }
 
   if (restorePromises.has(vectorStoreId)) return restorePromises.get(vectorStoreId);
-  const restorePromise = processDocument(filePath, vectorStoreId, documentMeta)
+  const restorePromise = (async () => {
+    if (process.env.PERSIST_VECTOR_INDEX !== 'false' && documentMeta.userId && documentMeta.documentId) {
+      try {
+        const entries = await loadSnapshot(documentMeta.userId, vectorStoreId, documentMeta.documentId);
+        if (entries) {
+          const store = new MemoryVectorStore(embeddingService.getEmbeddings());
+          await store.addVectors(
+            entries.map((entry) => entry.embedding),
+            entries.map((entry) => ({ pageContent: entry.content, metadata: entry.metadata }))
+          );
+          if (deletedStores.has(vectorStoreId)) throw new Error('Document was deleted during restore');
+          vectorStoreCache.set(vectorStoreId, store);
+          return;
+        }
+      } catch (error) {
+        logger.warn('Vector snapshot unavailable; rebuilding from PDF');
+      }
+    }
+    await processDocument(filePath, vectorStoreId, documentMeta);
+  })()
     .then(() => logger.info(`Restored vector store: ${vectorStoreId}`))
-    .finally(() => restorePromises.delete(vectorStoreId));
+    .finally(() => {
+      restorePromises.delete(vectorStoreId);
+      if (!activeProcessing.has(vectorStoreId)) deletedStores.delete(vectorStoreId);
+    });
   restorePromises.set(vectorStoreId, restorePromise);
   return restorePromise;
 }

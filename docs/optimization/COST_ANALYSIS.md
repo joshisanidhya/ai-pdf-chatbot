@@ -9,7 +9,7 @@ Use: 10% daily active users, two PDFs per registered user, 10 MB average PDF, an
 ## Current cost drivers
 
 - PDF files live on backend disk, requiring durable volume capacity and backups.
-- Every process restart can cause PDF extraction and re-embedding on a document's first query.
+- A first query after restart loads a private vector snapshot for newly indexed documents; older documents without a snapshot still require PDF extraction and re-embedding once.
 - Embeddings run locally, sequentially, so large uploads consume CPU and extend request occupancy.
 - Provider usage is not captured: conversation `tokensUsed` is always zero, preventing reliable per-user cost visibility or quotas.
 - Context includes up to four chunks and up to ten previous messages; no token-budget accounting exists.

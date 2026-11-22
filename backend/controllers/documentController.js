@@ -174,14 +174,15 @@ const deleteDocument = async (req, res, next) => {
       });
     }
 
-    // Delete file from disk
-    if (doc.filePath && fs.existsSync(doc.filePath)) {
-      fs.unlinkSync(doc.filePath);
-    }
-
     // Clear vector store from cache
     if (doc.vectorStoreId) {
-      clearVectorStore(doc.vectorStoreId);
+      await clearVectorStore(doc.vectorStoreId, req.user._id.toString());
+    }
+
+    if (doc.filePath) {
+      await fs.promises.unlink(doc.filePath).catch((error) => {
+        if (error.code !== 'ENOENT') throw error;
+      });
     }
 
     await doc.deleteOne();

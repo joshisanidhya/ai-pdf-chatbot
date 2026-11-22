@@ -6,7 +6,7 @@ React/Vite browser → Express API → MongoDB for users/documents/conversations
 
 ## Current limitations
 
-- Restart invalidates all vector stores; the first query reparses and re-embeds the source PDF.
+- Restart clears the in-memory vector cache; compatible private snapshots now reload without reparsing or re-embedding. Legacy documents without snapshots still rebuild on first query.
 - Text extraction and chunk metadata do not preserve page boundaries, so persisted citation `pageNumber` is normally null.
 - Upload processing is synchronous from the client's perspective.
 - Local vectors consume process RAM and are not shared across replicas.
@@ -20,3 +20,5 @@ Keep a simple modular monolith for initial users. Make a durable private documen
 No separate vector database, microservice, OCR service, or Kubernetes deployment is justified by current evidence. Durable vector representation and worker lifecycle require a separate design/migration decision based on the baseline and target host's volume guarantees.
 
 Tracing is optional. Set `OTEL_ENABLED=true` and `OTEL_EXPORTER_OTLP_ENDPOINT` to start the OpenTelemetry SDK; ordinary local and small deployments skip its startup and exporter overhead. The Express server closes HTTP connections and then shuts down tracing on SIGTERM.
+
+Vector snapshots now persist under `VECTOR_INDEX_DIR/<user-id>/<vector-store-id>.json` with restricted file permissions and a format/model version. Database ownership checks still precede chat retrieval. Cache misses load the snapshot, then fall back to reprocessing the PDF for older or incompatible snapshots. This is suitable only where uploads and index files share durable private storage; it does not make multi-replica caches coherent. Exact cosine retrieval remains in process memory after loading.

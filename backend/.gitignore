@@ -4,6 +4,7 @@ dist/
 *.log
 logs/
 uploads/*
+vector-indexes/
 !uploads/.gitkeep
 .DS_Store
 *.pem

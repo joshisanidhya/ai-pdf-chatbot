@@ -1,153 +1,73 @@
-<div align="center">
-  <br />
-  <a href="https://github.com/joshisanidhya/ai-pdf-chatbot">
-    <img src="frontend/images/sage_logo.png" alt="SAGE Logo" width="280" />
-  </a>
-  <br />
-  <br />
+# SAGE — AI PDF Chatbot
 
-  <h3 align="center">Semantic AI Generation Engine</h3>
+SAGE lets a signed-in user upload a text-based PDF and ask questions about it. The backend extracts text, splits it into chunks, creates local MiniLM embeddings, retrieves relevant chunks with exact cosine search, and asks a configured LLM to answer from that evidence. Conversations and document metadata live in MongoDB.
 
-  <p align="center">
-    <strong>AI-Powered Semantic Document Intelligence Platform</strong>
-  </p>
+## What works
 
-  <p align="center">
-    <a href="https://react.dev"><img src="https://img.shields.io/badge/React-18-000000?style=for-the-badge&logo=react" alt="React" /></a>
-    <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5-000000?style=for-the-badge&logo=vite" alt="Vite" /></a>
-    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-18-000000?style=for-the-badge&logo=node.js" alt="Node.js" /></a>
-    <a href="https://mongodb.com"><img src="https://img.shields.io/badge/MongoDB-Atlas-000000?style=for-the-badge&logo=mongodb" alt="MongoDB" /></a>
-    <a href="https://langchain.com"><img src="https://img.shields.io/badge/LangChain-Integration-000000?style=for-the-badge&logo=chainlink" alt="LangChain" /></a>
-  </p>
-  <br />
-</div>
+- JWT registration/login, per-user document and conversation routes.
+- PDF upload with size, MIME/extension, and byte-signature checks.
+- Local embeddings with private vector snapshots for restart recovery on durable disk.
+- Document chat through OpenRouter, OpenAI, Ollama, or a mock provider.
+- Conversation history, feedback, document deletion, and a responsive React UI.
+- Backend unit tests, frontend lint/build, and GitHub Actions CI configuration.
 
-## Overview
+The app currently processes uploads in the HTTP request, does not support scanned-PDF OCR, and does not preserve page numbers for accurate page citations. LLM answers are returned as complete JSON, not streamed. Review [security](docs/SECURITY.md) and [performance evidence](docs/PERFORMANCE.md) before production deployment.
 
-**SAGE** is a production-grade Retrieval-Augmented Generation (RAG) platform designed to eliminate LLM hallucinations. By combining precise local vector embeddings with advanced language models, SAGE enables users to upload dense PDF documents and instantly engage in semantic, context-aware conversations grounded entirely in truth.
+## Architecture
 
-Designed for performance and scale, SAGE represents a modern approach to private document intelligence.
-
----
-
-## Features
-
-- **AI Document Chat** — Interrogate your documents naturally in real-time.
-- **Semantic Search** — Strict vector retrieval ensuring high-accuracy context extraction.
-- **PDF Intelligence** — Automated parsing, cleaning, and token-optimized chunking.
-- **RAG Pipeline** — Dynamic injection of localized context into the LLM prompt layer.
-- **OpenRouter Integration** — Seamlessly leverage frontier models (Mistral, Claude, GPT-4).
-- **Vector Retrieval** — Local embedding generation via `all-MiniLM-L6-v2` for blazing fast semantic mapping.
-- **JWT Authentication** — Robust, isolated user sessions and secure document boundaries.
-- **Modern UI** — Cinematic micro-interactions built with Framer Motion and Tailwind CSS.
-- **MongoDB Storage** — Persistent metadata, conversation history, and user management.
-- **Context-Aware Responses** — Intelligent synthesis of conversational history and extracted chunks.
-
----
-
-## Architecture Flow
-
-The SAGE retrieval pipeline is highly optimized for accuracy and low-latency inference.
-
-```text
-PDF Upload  →  Semantic Chunking  →  Local Vector Embeddings  →  Similarity Search  →  Context Assembly  →  OpenRouter LLM  →  AI Response
+```mermaid
+flowchart LR
+  UI[React / Vite] --> API[Express API]
+  API --> DB[(MongoDB)]
+  API --> PDF[(Private PDFs)]
+  API --> IDX[(Private vector snapshots)]
+  API --> EMB[Local MiniLM embeddings]
+  API --> LLM[OpenRouter / OpenAI / Ollama]
 ```
 
----
+See [architecture](docs/ARCHITECTURE.md), [RAG pipeline](docs/RAG_PIPELINE.md), and [engineering decisions](docs/ENGINEERING_DECISIONS.md).
 
-## Tech Stack
+## Local development
 
-<div align="center">
+Requirements: Node 22+, MongoDB, and a provider key unless `LLM_PROVIDER=mock` or a local Ollama server is used.
 
-| **Frontend** | **Backend** | **AI Infrastructure** |
-| :--- | :--- | :--- |
-| React 18 | Node.js | LangChain |
-| Vite | Express.js | OpenRouter |
-| Tailwind CSS | MongoDB | `@xenova/transformers` |
-| Framer Motion | JSON Web Tokens | Sentence-Transformers |
-
-</div>
-
----
-
-## Interface
-
-SAGE features a custom-built, premium cinematic user interface heavily inspired by modern design principles (glassmorphism, soft ambient glows, organic noise filters). The dashboard offers real-time status monitoring for vector generation and document context extraction.
-
-</div>
-
----
-
-## Installation
-
-Getting SAGE up and running locally takes just a few minutes.
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/joshisanidhya/ai-pdf-chatbot.git
-cd ai-pdf-chatbot
-
-# Install backend dependencies
-cd backend && npm install
-
-# Install frontend dependencies
-cd ../frontend && npm install
-```
-
-### 2. Environment Setup
-
-**Backend** (`backend/.env`):
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/sage
-JWT_SECRET=your_super_secret_jwt_key
-LLM_PROVIDER=openrouter
-OPENROUTER_API_KEY=your_openrouter_key
-```
-
-**Frontend** (`frontend/.env`):
-```env
-VITE_API_URL=http://localhost:5000/api
-```
-
-### 3. Start Development Servers
-
-Start the backend service:
 ```bash
 cd backend
+npm ci
+cp .env.example .env
+# Edit .env: set MONGODB_URI, a unique strong JWT_SECRET, FRONTEND_URL, and provider settings.
 npm run dev
 ```
 
-Start the client application:
+In another terminal:
+
 ```bash
 cd frontend
+npm ci
+cp .env.example .env
 npm run dev
 ```
 
----
+The backend defaults to port 5000 and the Vite frontend to port 5173. Keep `UPLOAD_DIR` and `VECTOR_INDEX_DIR` on private durable storage. No keys belong in `VITE_` variables. For deployment and rollback, see [deployment](docs/DEPLOYMENT.md).
 
-## Deployment
+## API overview
 
-SAGE is built with a modern, decoupled architecture, making cloud deployment seamless.
+Authenticated routes require `Authorization: Bearer <token>`.
 
-- **Frontend**: Optimized for edge deployment on **Vercel**.
-- **Backend**: Container-ready for seamless deployment on **Render** or Railway.
-- **Database**: Native integration with **MongoDB Atlas** for scalable persistence.
+| Purpose | Routes |
+|---|---|
+| Auth | `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me`, `PUT /api/auth/profile`, `POST /api/auth/change-password` |
+| Documents | `GET /api/documents`, `POST /api/documents/upload` (multipart field `pdf`), `GET /api/documents/:id`, `DELETE /api/documents/:id`, `POST /api/documents/:id/reprocess` |
+| Chat | `POST /api/chat`, `POST /api/chat/feedback` |
+| Conversations | `GET /api/conversations`, `GET /api/conversations/:id`, `PUT /api/conversations/:id`, `DELETE /api/conversations/:id` |
+| Liveness | `GET /health` |
 
----
+## Verification and benchmarks
 
-## Future Roadmap
+```bash
+cd backend && npm test
+cd ../frontend && npm run lint && npm run build
+cd .. && node scripts/benchmark-vector-snapshot.js
+```
 
-- [ ] Implement persistent vector storage using ChromaDB / FAISS.
-- [ ] Add support for `.docx` and `.txt` ingestion.
-- [ ] Integrate streaming LLM responses (Server-Sent Events).
-- [ ] Add enterprise role-based access control (RBAC).
-
----
-
-<div align="center">
-  <br />
-  <p>Built with precision and purpose.</p>
-  <b>SAGE © 2026</b>
-</div>
+[Measured component results](docs/optimization/RESULTS.md) include tracing initialization and synthetic vector snapshot I/O. PDF ingestion, end-to-end answer latency, retrieval accuracy, and concurrent throughput still need representative benchmark data. The [audit](docs/optimization/AUDIT.md), [baseline plan](docs/optimization/BASELINE.md), [cost analysis](docs/optimization/COST_ANALYSIS.md), and [roadmap](docs/optimization/ROADMAP.md) track this work. [Resume bullet suggestions](docs/RESUME_POINTS.md) are limited to verified facts.

@@ -14,7 +14,7 @@ Status date: 2026-11-22. This roadmap is based on static repository inspection; 
 ## P1 — latency and cost
 
 1. Measure extract/chunk/embed/index/retrieval separately on representative PDFs.
-2. Persist vectors/chunks durably under an owner/document boundary; benchmark Mongo binary/vector payload or compact SQLite/local exact search before adding a vector database. Preserve compatibility and provide migration/rollback.
+2. Persist vectors/chunks durably under an owner/document boundary. Local disk snapshots are implemented for one durable host with a rollback flag; benchmark Mongo binary/vector payload or compact SQLite before multi-host scaling. Preserve compatibility and provide migration/rollback.
 3. Batch embeddings with bounded concurrency and cache model initialization; measure peak RSS and throughput.
 4. Make ingestion non-blocking with a bounded worker/status polling. A queue service is unnecessary for a single-node launch unless durability/concurrency measurements justify it.
 5. Bound context/history by tokens; capture provider usage, timeouts, cancellation, and per-user quotas.
