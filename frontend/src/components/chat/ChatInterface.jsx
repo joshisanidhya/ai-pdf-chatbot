@@ -3,12 +3,8 @@
  * Message display, input, AI response streaming effect, and source citations
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { Suspense, lazy, useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {
   Send, Brain, User, Copy, ThumbsUp, ThumbsDown,
   ChevronDown, FileText, Zap, Sparkles, RotateCcw
@@ -17,6 +13,8 @@ import { chatService } from '../../services/api';
 import { useDocuments } from '../../context/DocumentContext';
 import { conversationService } from '../../services/api';
 import toast from 'react-hot-toast';
+
+const MarkdownMessage = lazy(() => import('./MarkdownMessage'));
 
 // ── Typing Indicator ─────────────────────────────────────────────────────────
 function TypingIndicator() {
@@ -124,33 +122,9 @@ function MessageBubble({ message, onFeedback }) {
           {isUser ? (
             <p className="text-sm text-slate-200 leading-relaxed">{message.content}</p>
           ) : (
-            <div className="markdown-content text-sm">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  code({ node, inline, className, children, ...props }) {
-                    const match = /language-(\w+)/.exec(className || '');
-                    return !inline && match ? (
-                      <SyntaxHighlighter
-                        style={oneDark}
-                        language={match[1]}
-                        PreTag="div"
-                        className="!bg-surface-900 !rounded-xl !text-sm"
-                        {...props}
-                      >
-                        {String(children).replace(/\n$/, '')}
-                      </SyntaxHighlighter>
-                    ) : (
-                      <code className={`${className} bg-white/10 px-1.5 py-0.5 rounded text-brand-300 font-mono text-xs`} {...props}>
-                        {children}
-                      </code>
-                    );
-                  },
-                }}
-              >
-                {message.content}
-              </ReactMarkdown>
-            </div>
+            <Suspense fallback={<p className="text-sm text-slate-200 whitespace-pre-wrap">{message.content}</p>}>
+              <MarkdownMessage content={message.content} />
+            </Suspense>
           )}
         </div>
 
@@ -237,7 +211,7 @@ export default function ChatInterface({ document, conversationId, onConversation
       setMessages([]);
       setActiveConvId(null);
     }
-  }, [conversationId]);
+  }, [conversationId, activeConvId]);
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -312,7 +286,9 @@ export default function ChatInterface({ document, conversationId, onConversation
         prev.map((m) => m._id === messageId ? { ...m, feedback } : m)
       );
       toast.success('Thanks for the feedback!');
-    } catch {}
+    } catch {
+      toast.error('Failed to submit feedback');
+    }
   };
 
   const handleKeyDown = (e) => {

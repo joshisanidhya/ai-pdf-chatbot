@@ -42,6 +42,12 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  const logout = useCallback(() => {
+    localStorage.removeItem('sage_token');
+    localStorage.removeItem('sage_user');
+    dispatch({ type: 'LOGOUT' });
+  }, []);
+
   // ── Initialize auth from localStorage ────────────────────────────────────
   useEffect(() => {
     const token = localStorage.getItem('sage_token');
@@ -66,7 +72,7 @@ export function AuthProvider({ children }) {
     } else {
       dispatch({ type: 'SET_LOADING', payload: false });
     }
-  }, []);
+  }, [logout]);
 
   const login = useCallback(async (email, password) => {
     const res = await authService.login({ email, password });
@@ -86,12 +92,6 @@ export function AuthProvider({ children }) {
     localStorage.setItem('sage_user', JSON.stringify(user));
     dispatch({ type: 'SET_AUTH', payload: { token, user } });
     return user;
-  }, []);
-
-  const logout = useCallback(() => {
-    localStorage.removeItem('sage_token');
-    localStorage.removeItem('sage_user');
-    dispatch({ type: 'LOGOUT' });
   }, []);
 
   const updateUser = useCallback((updates) => {

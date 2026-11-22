@@ -2,7 +2,7 @@
  * Chat Page — Main RAG chat interface
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { FileText } from 'lucide-react';
@@ -24,16 +24,7 @@ export default function ChatPage() {
 
   const { documents, setActiveDocument, activeDocument } = useDocuments();
 
-  // Load document if ID in URL
-  useEffect(() => {
-    if (documentId) {
-      loadDocument(documentId);
-    } else {
-      setCurrentDocument(null);
-    }
-  }, [documentId]);
-
-  const loadDocument = async (id) => {
+  const loadDocument = useCallback(async (id) => {
     // Check if already in local state
     const localDoc = documents.find((d) => d._id === id);
     if (localDoc) {
@@ -52,7 +43,13 @@ export default function ChatPage() {
     } finally {
       setIsLoadingDoc(false);
     }
-  };
+  }, [documents, setActiveDocument]);
+
+  // Load document if ID in URL
+  useEffect(() => {
+    if (documentId) loadDocument(documentId);
+    else setCurrentDocument(null);
+  }, [documentId, loadDocument]);
 
   const handleConversationCreate = (convId) => {
     setSearchParams({ conv: convId });

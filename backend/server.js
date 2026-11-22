@@ -9,8 +9,15 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-const path = require('path');
 require('dotenv').config();
+
+if (process.env.NODE_ENV !== 'test') {
+  const jwtSecret = process.env.JWT_SECRET;
+  const isPlaceholder = !jwtSecret || /change_this|your_super_secret|placeholder/i.test(jwtSecret);
+  if (isPlaceholder || (process.env.NODE_ENV === 'production' && jwtSecret.length < 32)) {
+    throw new Error('Set JWT_SECRET to a strong, private value before starting SAGE.');
+  }
+}
 
 const connectDB = require('./config/database');
 const logger = require('./utils/logger');
@@ -80,9 +87,6 @@ if (process.env.NODE_ENV !== 'test') {
     stream: { write: (message) => logger.http(message.trim()) },
   }));
 }
-
-// ── Static Files ─────────────────────────────────────────────────────────────
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // ── Health Check ─────────────────────────────────────────────────────────────
 app.get('/health', (req, res) => {

@@ -20,17 +20,25 @@ async function generateResponse(messages) {
 
   logger.info(`🤖 Generating response via: ${provider}`);
 
-  switch (provider) {
-    case 'mock':
-      return generateWithMock(messages);
-    case 'openrouter':
-      return generateWithOpenRouter(messages);
-    case 'openai':
-      return generateWithOpenAI(messages);
-    case 'ollama':
-      return generateWithOllama(messages);
-    default:
-      throw new Error(`Unknown LLM provider: ${provider}`);
+  try {
+    switch (provider) {
+      case 'mock':
+        return await generateWithMock(messages);
+      case 'openrouter':
+        return await generateWithOpenRouter(messages);
+      case 'openai':
+        return await generateWithOpenAI(messages);
+      case 'ollama':
+        return await generateWithOllama(messages);
+      default:
+        throw new Error(`Unknown LLM provider: ${provider}`);
+    }
+  } catch (error) {
+    const status = error.response?.status;
+    logger.error(`LLM provider ${provider} failed${status ? ` with status ${status}` : ''}`);
+    const safeError = new Error('Configured LLM provider request failed');
+    safeError.statusCode = 502;
+    throw safeError;
   }
 }
 
@@ -76,8 +84,7 @@ async function generateWithOpenRouter(messages) {
     return response.data.choices[0].message.content;
   } catch (error) {
     if (error.response) {
-      logger.error('OpenRouter API Error:', error.response.data);
-      throw new Error(`OpenRouter API failed: ${error.response.data.error?.message || error.message}`);
+      throw new Error(`OpenRouter API request failed with status ${error.response.status}`);
     }
     throw error;
   }

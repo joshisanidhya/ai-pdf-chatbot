@@ -7,7 +7,7 @@
   "scripts": {
     "start": "NODE_OPTIONS='--dns-result-order=ipv4first' node server.js",
     "dev": "NODE_OPTIONS='--dns-result-order=ipv4first' nodemon server.js",
-    "test": "jest"
+    "test": "node --test"
   },
   "dependencies": {
     "@langchain/community": "^0.3.15",

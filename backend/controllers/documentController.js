@@ -47,7 +47,7 @@ const uploadDocument = async (req, res, next) => {
 
     // Respond immediately (processing happens async-like but we await it here)
     // In production, offload to a job queue (BullMQ/Redis)
-    logger.info(`📤 Processing document: ${originalname} for user: ${req.user._id}`);
+    logger.info(`Processing uploaded document ${doc._id}`);
 
     const result = await processDocument(filePath, vectorStoreId, {
       documentName: customName,
@@ -71,7 +71,7 @@ const uploadDocument = async (req, res, next) => {
       data: { document: doc },
     });
   } catch (error) {
-    logger.error('Document upload/processing failed:', error.message);
+    logger.error('Document upload or processing failed');
 
     // Update document status to failed if record exists
     if (doc) {

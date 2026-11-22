@@ -3,7 +3,7 @@
  * Navigation, document list, and conversation history
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -26,22 +26,22 @@ export default function Sidebar({ onUploadClick }) {
   const location = useLocation();
   const { documentId } = useParams();
 
-  useEffect(() => {
-    fetchDocuments();
-  }, []);
-
-  useEffect(() => {
-    if (activeDocument) {
-      loadConversations(activeDocument._id);
-    }
-  }, [activeDocument]);
-
-  const loadConversations = async (docId) => {
+  const loadConversations = useCallback(async (docId) => {
     try {
       const res = await conversationService.getAll({ documentId: docId, limit: 10 });
       setConversations(res.data.conversations);
-    } catch {}
-  };
+    } catch {
+      toast.error('Failed to load conversation history');
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchDocuments();
+  }, [fetchDocuments]);
+
+  useEffect(() => {
+    if (activeDocument) loadConversations(activeDocument._id);
+  }, [activeDocument, loadConversations]);
 
   const handleDocumentSelect = (doc) => {
     setActiveDocument(doc);

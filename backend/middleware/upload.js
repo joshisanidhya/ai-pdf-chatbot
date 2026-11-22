@@ -41,7 +41,9 @@ const fileFilter = (req, file, cb) => {
   if (allowedMimeTypes.includes(file.mimetype) && allowedExtensions.includes(ext)) {
     cb(null, true);
   } else {
-    cb(new Error('Only PDF files are allowed'), false);
+    const error = new Error('Only PDF files are allowed');
+    error.statusCode = 400;
+    cb(error, false);
   }
 };
 

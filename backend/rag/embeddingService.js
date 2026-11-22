@@ -15,7 +15,7 @@ class LocalTransformersEmbeddings {
       const { pipeline } = await import('@xenova/transformers');
       return await pipeline('feature-extraction', this.modelName);
     })().catch(err => {
-      logger.error('Failed to initialize Xenova pipeline:', err.message);
+      logger.error('Failed to initialize Xenova pipeline');
       return err; // Return error instead of throwing to avoid UnhandledPromiseRejection
     });
   }
@@ -27,7 +27,7 @@ class LocalTransformersEmbeddings {
       const output = await extractor(text, { pooling: 'mean', normalize: true });
       return Array.from(output.data);
     } catch (error) {
-      logger.error('Local embedQuery failed:', error);
+      logger.error('Local embedQuery failed');
       throw error;
     }
   }
@@ -45,7 +45,7 @@ class LocalTransformersEmbeddings {
       logger.info(`Successfully generated embeddings of dimension ${embeddings[0].length}`);
       return embeddings;
     } catch (error) {
-      logger.error('Local embedDocuments failed:', error);
+      logger.error('Local embedDocuments failed');
       throw error;
     }
   }

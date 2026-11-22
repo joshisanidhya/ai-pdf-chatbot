@@ -46,7 +46,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     fetchDocuments();
-  }, []);
+  }, [fetchDocuments]);
 
   const handleChatClick = (doc) => {
     setActiveDocument(doc);

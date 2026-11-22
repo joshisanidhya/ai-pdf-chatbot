@@ -5,6 +5,7 @@
 const express = require('express');
 const { protect } = require('../middleware/auth');
 const upload = require('../middleware/upload');
+const validatePdf = require('../middleware/validatePdf');
 const {
   uploadDocument,
   getDocuments,
@@ -19,7 +20,7 @@ const router = express.Router();
 router.use(protect);
 
 router.get('/', getDocuments);
-router.post('/upload', upload.single('pdf'), uploadDocument);
+router.post('/upload', upload.single('pdf'), validatePdf, uploadDocument);
 router.get('/:id', getDocument);
 router.delete('/:id', deleteDocument);
 router.post('/:id/reprocess', reprocessDocument);

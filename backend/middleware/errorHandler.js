@@ -19,19 +19,11 @@ const notFound = (req, res, next) => {
  * Must have 4 parameters for Express to recognize it as error handler
  */
 const errorHandler = (err, req, res, next) => {
-  // Log the error
-  logger.error({
-    message: err.message,
-    stack: err.stack,
-    statusCode: err.statusCode,
-    path: req.path,
-    method: req.method,
-    ip: req.ip,
-  });
-
   // Default status code
   let statusCode = err.statusCode || err.status || 500;
-  let message = err.message || 'Internal Server Error';
+  let message = process.env.NODE_ENV === 'production' && statusCode >= 500
+    ? 'An unexpected server error occurred'
+    : (err.message || 'Internal Server Error');
 
   // Mongoose validation error
   if (err.name === 'ValidationError') {
@@ -56,6 +48,21 @@ const errorHandler = (err, req, res, next) => {
   if (err.name === 'TokenExpiredError') {
     statusCode = 401;
     message = 'Authentication token has expired';
+  }
+
+  logger.error({
+    message: process.env.NODE_ENV === 'production' && statusCode >= 500
+      ? 'Unhandled server error'
+      : err.message,
+    ...(process.env.NODE_ENV !== 'production' && { stack: err.stack }),
+    statusCode,
+    path: req.path,
+    method: req.method,
+  });
+
+  if (err.name === 'MulterError' && err.code !== 'LIMIT_FILE_SIZE') {
+    statusCode = 400;
+    message = 'The uploaded file could not be accepted';
   }
 
   // Multer file size error

@@ -51,7 +51,7 @@ const register = async (req, res, next) => {
     // Generate token
     const token = generateToken(user._id);
 
-    logger.info(`✅ New user registered: ${email}`);
+    logger.info('New user registered');
 
     res.status(201).json({
       success: true,
@@ -107,7 +107,7 @@ const login = async (req, res, next) => {
 
     const token = generateToken(user._id);
 
-    logger.info(`✅ User logged in: ${email}`);
+    logger.info('User logged in');
 
     res.json({
       success: true,

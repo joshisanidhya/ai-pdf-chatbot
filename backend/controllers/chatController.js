@@ -88,7 +88,7 @@ const sendMessage = async (req, res, next) => {
     }));
 
     // ── Run RAG query pipeline ─────────────────────────────────────
-    logger.info(`💬 Processing query: "${question.slice(0, 80)}..." for doc: ${documentId}`);
+    logger.info(`Processing chat request for document ${documentId}`);
     const startTime = Date.now();
 
     const { answer, sources, responseTimeMs } = await queryDocument(
@@ -138,7 +138,7 @@ const sendMessage = async (req, res, next) => {
       },
     });
   } catch (error) {
-    logger.error('Chat error:', error.message);
+    logger.error('Chat request failed');
     next(error);
   }
 };
