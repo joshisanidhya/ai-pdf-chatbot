@@ -13,7 +13,7 @@ Use: 10% daily active users, two PDFs per registered user, 10 MB average PDF, an
 - Embeddings run locally, sequentially, so large uploads consume CPU and extend request occupancy.
 - Provider usage is not captured: conversation `tokensUsed` is always zero, preventing reliable per-user cost visibility or quotas.
 - Context includes up to four chunks and up to ten previous messages; no token-budget accounting exists.
-- Telemetry initializes OpenTelemetry and a default local collector endpoint even if no collector is configured.
+- OpenTelemetry is now opt-in; enabling it incurs startup memory/CPU and requires a configured collector endpoint.
 
 ## Cost controls to prioritize
 

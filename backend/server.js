@@ -2,15 +2,14 @@
  * SAGE - Main Server Entry Point
  * Production-grade Express server with security, logging, and RAG pipeline
  */
-require('./tracing');
+require('dotenv').config();
+const tracing = process.env.OTEL_ENABLED === 'true' ? require('./tracing') : null;
 
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-require('dotenv').config();
-
 if (process.env.NODE_ENV !== 'test') {
   const jwtSecret = process.env.JWT_SECRET;
   const isPlaceholder = !jwtSecret || /change_this|your_super_secret|placeholder/i.test(jwtSecret);
@@ -119,7 +118,8 @@ const server = app.listen(PORT, () => {
 // Graceful shutdown
 process.on('SIGTERM', () => {
   logger.info('SIGTERM received. Shutting down gracefully...');
-  server.close(() => {
+  server.close(async () => {
+    if (tracing) await tracing.shutdown().catch(() => logger.warn('Tracing shutdown failed'));
     logger.info('Process terminated');
     process.exit(0);
   });

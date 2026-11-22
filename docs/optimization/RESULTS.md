@@ -40,3 +40,21 @@ Date: 2026-11-22. This first batch focuses on security, correctness, and fronten
 ## Remaining risks
 
 Vectors remain process-local and uploads still process synchronously. The signature check is a file-type sanity check, not a malware scan or parser sandbox. Any future viewer must verify ownership. Prompt injection defenses are model instructions, not a formal guarantee. No production security certification is implied.
+
+## Batch 2: optional tracing (2026-11-22)
+
+Affected files: `backend/server.js`, `backend/tracing.js`, `backend/.env.example`, and `scripts/benchmark-tracing-startup.js`.
+
+The server now initializes OpenTelemetry only with `OTEL_ENABLED=true`. An enabled deployment must also set `OTEL_EXPORTER_OTLP_ENDPOINT`. The server owns tracer shutdown during SIGTERM, so the tracer no longer exits independently before HTTP connections close. Existing deployments that require traces should set both environment variables. Rollback: set `OTEL_ENABLED=true` with the collector endpoint; no data migration is involved.
+
+Seven cold Node processes per mode were measured with `node ../scripts/benchmark-tracing-startup.js` from `backend/` on Node v26.12.1. The probe measures `dotenv` and tracing initialization through the next event-loop turn, excluding Express, MongoDB, model inference, and requests. It does not send traces.
+
+| Probe metric, p50 | Tracing enabled (previous default behavior) | Tracing disabled (new default) | Change |
+|---|---:|---:|---:|
+| Initialization elapsed | 811.59 ms | 14.39 ms | 98.2% lower |
+| RSS after initialization | 92.57 MB | 52.30 MB | 43.5% lower |
+| CPU time | 913.42 ms | 16.93 ms | 98.1% lower |
+
+The pre-change direct tracing probe had a 1,017.96 ms median and ~93.1 MB RSS over seven runs. The paired post-change modes provide the cleaner comparison above because both use the same benchmark code. Startup may vary with disk cache, runtime, and host load. No request latency or LLM cost improvement is claimed.
+
+Validation: backend `npm test` passed 3/3; syntax checks and `git diff --check` passed. Enabled tracing initialized in the paired benchmark using an explicit local collector URL. Full Express/Mongo integration and actual trace delivery remain unverified.

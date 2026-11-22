@@ -1,6 +1,6 @@
 # SAGE performance baseline and benchmark plan
 
-Date: 2026-11-22. **No numeric baseline is claimed.** The repository contains no representative PDF corpus; the working environment has not been verified to have MongoDB, model weights, or provider credentials. Do not treat values below as measured.
+Date: 2026-11-22. **No end-to-end RAG baseline is claimed.** The repository contains no representative PDF corpus; the working environment has not been verified to have MongoDB, model weights, or provider credentials. The tracing startup component is measured separately below.
 
 ## Baseline metric table
 
@@ -16,6 +16,8 @@ Date: 2026-11-22. **No numeric baseline is claimed.** The repository contains no
 | DB p50 / p95 and concurrent throughput | — | Unmeasured; requires MongoDB and controlled load test |
 | Token usage / estimated cost per query | — | Unmeasured; provider currently does not return or persist usage |
 | Retrieval accuracy | — | Unmeasured; no labeled evaluation set exists |
+
+Tracing startup is the first measured infrastructure metric. Before the opt-in change, seven cold processes spent a median 1,017.96 ms initializing tracing with ~93.1 MB RSS. A repeatable enabled/disabled comparison and limitations are recorded in `RESULTS.md`. This is a startup component benchmark, not an API latency baseline.
 
 ## Repeatable workload
 
