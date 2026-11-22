@@ -11,7 +11,7 @@ SAGE lets a signed-in user upload a text-based PDF and ask questions about it. T
 - Conversation history, feedback, document deletion, and a responsive React UI.
 - Backend unit tests, frontend lint/build, and GitHub Actions CI configuration.
 
-The app currently processes uploads in the HTTP request, does not support scanned-PDF OCR, and does not preserve page numbers for accurate page citations. LLM answers are returned as complete JSON, not streamed. Review [security](docs/SECURITY.md) and [performance evidence](docs/PERFORMANCE.md) before production deployment.
+The app currently processes uploads in the HTTP request and does not support scanned-PDF OCR. Newly processed text PDFs carry page numbers in retrieved sources; older saved indexes may need reprocessing to gain them. LLM answers are returned as complete JSON, not streamed. Review [security](docs/SECURITY.md) and [performance evidence](docs/PERFORMANCE.md) before production deployment.
 
 ## Architecture
 

@@ -5,7 +5,7 @@
  * PDF Loading → Chunking → Embedding → Vector Storage → Retrieval → LLM Generation
  *
  * Supports multiple LLM providers: OpenRouter, OpenAI, Ollama
- * Supports FAISS and ChromaDB vector stores
+ * Uses exact in-memory cosine search with private disk snapshots
  */
 
 const { RecursiveCharacterTextSplitter } = require('langchain/text_splitter');
@@ -33,11 +33,27 @@ const activeProcessing = new Set();
 async function extractTextFromPDF(filePath) {
   try {
     const dataBuffer = await fs.promises.readFile(filePath);
-    const data = await pdfParse(dataBuffer);
+    const pages = [];
+    const data = await pdfParse(new Uint8Array(dataBuffer.buffer, dataBuffer.byteOffset, dataBuffer.byteLength), {
+      version: 'v2.0.550',
+      pagerender: async (page) => {
+        const content = await page.getTextContent({ normalizeWhitespace: false, disableCombineTextItems: false });
+        let lastY;
+        let text = '';
+        for (const item of content.items) {
+          const y = item.transform?.[5];
+          text += lastY === undefined || lastY === y ? item.str : `\n${item.str}`;
+          lastY = y;
+        }
+        pages.push({ pageNumber: pages.length + 1, text });
+        return text;
+      },
+    });
 
     return {
       text: data.text,
       pageCount: data.numpages,
+      pages,
       metadata: {
         title: data.info?.Title || null,
         author: data.info?.Author || null,
@@ -58,7 +74,7 @@ async function extractTextFromPDF(filePath) {
  * Uses recursive character splitting with semantic overlap
  * ─────────────────────────────────────────────────────────────────
  */
-async function chunkDocument(text, documentMeta = {}) {
+async function chunkDocument(textOrPages, documentMeta = {}) {
   const splitter = new RecursiveCharacterTextSplitter({
     chunkSize: 1000,      // ~250 tokens per chunk
     chunkOverlap: 200,    // Overlap to preserve context across chunks
@@ -66,9 +82,12 @@ async function chunkDocument(text, documentMeta = {}) {
     keepSeparator: false,
   });
 
+  const pages = typeof textOrPages === 'string'
+    ? [{ text: textOrPages, pageNumber: documentMeta.pageNumber || null }]
+    : textOrPages.filter((page) => page.text.trim());
   const chunks = await splitter.createDocuments(
-    [text],
-    [{ ...documentMeta }]
+    pages.map((page) => page.text),
+    pages.map((page) => ({ ...documentMeta, pageNumber: page.pageNumber }))
   );
 
   // Enrich chunks with index metadata
@@ -196,7 +215,7 @@ async function processDocument(filePath, vectorStoreId, documentMeta = {}) {
   logger.info(`🔄 Starting RAG pipeline for: ${path.basename(filePath)}`);
 
   // Step 1: Extract text
-  const { text, pageCount, metadata: pdfMeta } = await extractTextFromPDF(filePath);
+  const { text, pages, pageCount, metadata: pdfMeta } = await extractTextFromPDF(filePath);
 
   if (!text || text.trim().length < 100) {
     throw new Error('Could not extract sufficient text from PDF. The file may be image-based or corrupted.');
@@ -206,7 +225,7 @@ async function processDocument(filePath, vectorStoreId, documentMeta = {}) {
   logger.info(`📄 Extracted: ${pageCount} pages, ~${wordCount} words`);
 
   // Step 2: Chunk the document
-  const chunks = await chunkDocument(text, {
+  const chunks = await chunkDocument(pages, {
     ...documentMeta,
     ...pdfMeta,
   });

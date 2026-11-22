@@ -22,16 +22,9 @@ async function main() {
   const absolutePath = path.resolve(inputPath);
   const before = process.memoryUsage().rss;
   const { value: buffer, ms: readMs } = await timed('read', () => fs.readFile(absolutePath));
-  let parse;
-  try {
-    parse = require(path.resolve(__dirname, '../backend/node_modules/pdf-parse'));
-  } catch {
-    throw new Error('Install backend dependencies before running this benchmark.');
-  }
-  const { value: parsed, ms: extractionMs } = await timed('extract', () => parse(buffer));
-
-  const { chunkDocument } = require('../backend/rag/ragPipeline');
-  const { value: chunks, ms: chunkingMs } = await timed('chunk', () => chunkDocument(parsed.text, { benchmark: true }));
+  const { extractTextFromPDF, chunkDocument } = require('../backend/rag/ragPipeline');
+  const { value: parsed, ms: extractionMs } = await timed('extract', () => extractTextFromPDF(absolutePath));
+  const { value: chunks, ms: chunkingMs } = await timed('chunk', () => chunkDocument(parsed.pages, { benchmark: true }));
   let embeddingMs = null;
   if (includeEmbeddings) {
     const embeddings = require('../backend/rag/embeddingService').getEmbeddings();
@@ -40,11 +33,11 @@ async function main() {
   }
 
   console.log(JSON.stringify({
-    file: path.basename(absolutePath), bytes: buffer.length, pages: parsed.numpages,
+    file: path.basename(absolutePath), bytes: buffer.length, pages: parsed.pageCount,
     chars: parsed.text.length, chunks: chunks.length, timingsMs: { read: readMs, extraction: extractionMs, chunking: chunkingMs, embedding: embeddingMs },
     rssBeforeBytes: before, rssAfterBytes: process.memoryUsage().rss,
     system: { node: process.version, platform: process.platform, arch: process.arch, cpus: os.cpus().length, totalMemoryBytes: os.totalmem() },
-    note: 'Single run. Repeat cold and warm processes; this script does not measure database, retrieval, browser, concurrency, or LLM latency.'
+    note: 'Single run. Extraction includes its own file read; read is measured separately. Repeat cold and warm processes. Database, retrieval, browser, concurrency, and LLM latency are excluded.'
   }, null, 2));
 }
 

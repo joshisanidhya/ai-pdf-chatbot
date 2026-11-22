@@ -23,7 +23,7 @@ Status date: 2026-11-22. This roadmap is based on static repository inspection; 
 ## P2 — experience and product
 
 1. Show processing status via polling and accurate phase messaging; progress must distinguish bytes uploaded from document processing.
-2. Add citations with genuine page numbers and click-to-open page support after page-preserving extraction.
+2. Page-aware extraction now supplies genuine page numbers for newly processed text PDFs. Add an authenticated PDF viewer and click-to-open page support; older snapshots require reprocessing.
 3. Lazy-load routes and heavy Markdown/code rendering; measure built output and Core Web Vitals.
 4. Add request cancellation and recoverable upload/chat error states.
 5. Use a compact set of high-value features: multi-document comparison and export after core citations are dependable.

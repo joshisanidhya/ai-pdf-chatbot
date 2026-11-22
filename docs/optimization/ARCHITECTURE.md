@@ -7,7 +7,7 @@ React/Vite browser → Express API → MongoDB for users/documents/conversations
 ## Current limitations
 
 - Restart clears the in-memory vector cache; compatible private snapshots now reload without reparsing or re-embedding. Legacy documents without snapshots still rebuild on first query.
-- Text extraction and chunk metadata do not preserve page boundaries, so persisted citation `pageNumber` is normally null.
+- Newly processed text PDFs preserve page numbers in chunk metadata. Older vector snapshots lack this metadata until reprocessed; scanned PDFs still need OCR.
 - Upload processing is synchronous from the client's perspective.
 - Local vectors consume process RAM and are not shared across replicas.
 - Conversation messages and source text are embedded in one ever-growing Mongo document.
